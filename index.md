@@ -10,3 +10,6 @@ Arrivé sur la page d'accueil, un formulaire permet d'entrer un terme mathémati
 Le cœur de l’application est constitué de trois modules : un module de gestion des requêtes au dictionnaire et un module de gestions des entrées du dictionnaire et un module de contrôle des permissions. Ces modules on été implémentés en utilisant une architecture Modèle Vue Contrôleur.
  
 Les diagrammes UML du projet sont disponibles, que se soit pour la vue fonctionnelle, la vue statique ou la vue dynamique.
+
+## Lien
+[...vers mon site](http://morad-zahid.lescigales.org)
