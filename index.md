@@ -12,5 +12,5 @@ Le cœur de l’application est constitué de trois modules : un module de gesti
 Les diagrammes UML du projet sont disponibles, que se soit pour la vue fonctionnelle, la vue statique ou la vue dynamique.
 
 ## Lien
-[...vers mon site](http://morad-zahid.lescigales.org)
+[...vers mon site](http://morad-zahid.lescigales.org) <br>
 [...et vers mon profil GitHub](https://github.com/moradZahid)
