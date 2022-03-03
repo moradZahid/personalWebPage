@@ -13,3 +13,4 @@ Les diagrammes UML du projet sont disponibles, que se soit pour la vue fonctionn
 
 ## Lien
 [...vers mon site](http://morad-zahid.lescigales.org)
+[...et vers mon profil GitHub](https://github.com/moradZahid)
