@@ -9,7 +9,9 @@ try
 
 catch(UnexpectedValue $e)
 {
-	header('Location:http://localhost/morad/controller/frontalController.php');
+	$url = $_SESSION['index'];
+	$url .= '/controller/frontalController.php';
+	header('Location:'.$url);
 }
 
 catch(IsNotSet $e)
@@ -17,7 +19,7 @@ catch(IsNotSet $e)
 	$_SESSION['msg']='invalid login or password';
 	$url = $_SESSION['index'];
 	$url .= '/controller/frontalController.php?from=';
-	$url .= $e->getComplementInfo();
+	$url .= $e->getMessage();
 	header('Location:'.$url);
 }
 
@@ -26,7 +28,7 @@ catch(EmptyString $e)
 	$_SESSION['msg']='invalid login or password';
 	$url = $_SESSION['index'];
 	$url .= '/controller/frontalController.php?from=';
-	$url .= $e->getComplementInfo();
+	$url .= $e->getMessage();
 	header('Location:'.$url);
 }
 
@@ -35,6 +37,6 @@ catch(InvalidPassword $e)
 	$_SESSION['msg']='invalid login or password';
 	$url = $_SESSION['index'];
 	$url .= '/controller/frontalController.php?from=';
-	$url .= $e->getComplementInfo();
+	$url .= $e->getMessage();
 	header('Location:'.$url);
 }

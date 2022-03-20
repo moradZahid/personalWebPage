@@ -23,7 +23,7 @@ catch(UnexpectedValue $e)
 }
 catch(FileError $e)
 {
-	$_SESSION['msg']=$e->getComplementInfo();
+	$_SESSION['msg']=$e->getMessage();
 	$url = $_SESSION['index'];
 	$url='/controller/frontalController.php?from=add entries service';
 	header('Location:'.$url);
