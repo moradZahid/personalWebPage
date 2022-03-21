@@ -1,6 +1,7 @@
 <?php
 include_once(dirname(__FILE__).'/DictionaryService.class.php');
 include_once(dirname(__FILE__).'/DictionaryEntry.class.php');
+include(dirname(__FILE__,3).'/model/dictionaryHandler/modelDictionaryHandlerFunctions.php');
 
 class EntriesAddition extends DictionaryService
 {
@@ -14,13 +15,22 @@ class EntriesAddition extends DictionaryService
 	 */
 	protected function getEntryListToAdd($data_list, $frenchIndex, $englishIndex)
 	{
-		$i=0;
 		foreach($data_list as $pair)
 		{
-			$entry=new DictionaryEntry($pair[$frenchIndex],$pair[$englishIndex]);
+			$french_id = is_french_expression_in_table($pair[$frenchIndex]);
+			if ($french_id < 1)
+			{
+				$french_id = add_french_expression($pair[$frenchIndex]);
+			}
 
-			$entries_list[$i]=$entry;
-			$i++;
+			$english_id = is_english_expression_in_table($pair[$englishIndex]);
+			if ($english_id < 1)
+			{
+				$english_id = add_english_expression($pair[$englishIndex]);
+			}
+			$entry=new DictionaryEntry($pair[$frenchIndex],$french_id,$pair[$englishIndex],$english_id);
+
+			$entries_list[] = $entry;
 		}
 		return $entries_list;
 	}
