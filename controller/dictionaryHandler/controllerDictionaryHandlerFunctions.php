@@ -3,8 +3,8 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
 
 
 /**
- * get_number_entries	: return for each letters the number of entries whose the french expression 
- *					 	  begins with this letter 
+ * get_number_entries	: return for each letters the number of entries whose the french expression
+ *					 	  begins with this letter
  *
  *						: return : array of integer
  */
@@ -12,7 +12,7 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
  {
  	// receive the number of entries for each letters
  	$nbr_entries=NULL;
- 	
+
  	//call the model to fill $nbr_entries
  	try
  	{
@@ -31,15 +31,15 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
 			include(dirname(__FILE__,3).'/view/dictionary/errorFrenchTemplate.php');
 		}
 	}
- 	 
+
 	return $nbr_entries;
  }
- 
+
 
 /**
  * get_offset	: return the offset of the first entry to display
  *
- *				: param : $letter	: string  
+ *				: param : $letter	: string
  *						: $page_nbr	: integer
  *
  *				: return: integer
@@ -48,10 +48,10 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
  {
 	global $nbr_entries;
 	global $entries_per_page;
-	
+
 	$index = ord($letter) - 97;
 	$total_entries = 0;
-	
+
 	for ($i=0 ; $i < $index ; $i++)
 	{
 		$total_entries = $total_entries + $nbr_entries[$i];
@@ -63,34 +63,34 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
 /**
  * get_nbr_entries_to_display	: return the number of entries to display
  *
- *								: param 	: $letter	: string  
+ *								: param 	: $letter	: string
  *											: $page_nbr	: integer
  *
- *								: return: integer 
+ *								: return: integer
  */
  function get_nbr_entries_to_display($letter,$page_nbr)
  {
 	global $nbr_entries;
 	global $entries_per_page;
-	
+
 	$index = ord($letter) - 97;
-	
+
 	$remainder = $nbr_entries[$index] % $entries_per_page;
 	$last_page = ceil($nbr_entries[$index] / $entries_per_page);
-	
+
 	if ($remainder == 0)
 	{
 		return $entries_per_page;
 	}
-	
+
 	if ($page_nbr == $last_page)
 	{
 		return $remainder;
 	}
 	return $entries_per_page;
  }
- 
- 
+
+
 /**
  * check_validity_letter	: return 0 if the parameter is not a letter between a and z
  *
@@ -111,7 +111,7 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
  	 }
  	 return 1;
  }
- 
+
 
  /**
  * check_validity_page	: return 0 if the first parameter is not a valid page number for the
@@ -123,22 +123,47 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
  */
  function check_validity_page($page,$letter)
  {
- 		 
+
  	global $nbr_entries;
 	global $entries_per_page;
-	
+
 	if ($page < 1)
 	{
 		return 0;
 	}
-	
+
 	$index = ord($letter) - 97;
-	
+
 	$last_page = ceil($nbr_entries[$index] / $entries_per_page);
-	
+
 	if ($page > $last_page)
 	{
 		return 0;
 	}
 	return 1;
+ }
+
+/**
+* pairs_of_expressions  : return pairs of expression obtained from a list of
+*                       : expressions separated by a comma
+*
+*                       : param : $multi_expressions : array of strings
+*
+*                       :return: array of pairs of strings
+*/
+ function pairs_of_expressions($multi_expressions)
+ {
+     $expr1 = explode(',' , $multi_expressions[0]);
+     $expr2 = explode(',' , $multi_expressions[1]);
+     $arr_pairs = [];
+
+     foreach ($expr1 as $elt1)
+     {
+         foreach ($expr2 as $elt2)
+         {
+             $pair = array(trim($elt1) , trim($elt2));
+             $arr_pairs[] = $pair;
+         }
+     }
+     return $arr_pairs;
  }
