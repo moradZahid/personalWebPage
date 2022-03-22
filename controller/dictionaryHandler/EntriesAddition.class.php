@@ -1,7 +1,7 @@
 <?php
 include_once(dirname(__FILE__).'/DictionaryService.class.php');
 include_once(dirname(__FILE__).'/DictionaryEntry.class.php');
-include(dirname(__FILE__,3).'/model/dictionaryHandler/modelDictionaryHandlerFunctions.php');
+include_once(dirname(__FILE__,3).'/model/dictionaryHandler/modelDictionaryHandlerFunctions.php');
 
 class EntriesAddition extends DictionaryService
 {

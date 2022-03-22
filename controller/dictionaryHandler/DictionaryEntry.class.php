@@ -3,8 +3,8 @@ class DictionaryEntry
 {
 	protected $french;
 	protected $english;
-	protected $frenchId;
-	protected $englishId;
+	protected $frenchId;  //identity number of the french expression in the French table
+	protected $englishId; //identity number of the english expression in the English table
 
 	public function __construct($french,$french_id,$english,$english_id)
 	{

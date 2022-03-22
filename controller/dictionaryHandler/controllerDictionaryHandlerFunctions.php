@@ -3,70 +3,44 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
 
 
 /**
- * get_number_entries	: return for each letters the number of entries whose the french expression
- *					 	  begins with this letter
+ * get_number_entries	: return for each letters the number of entries in the dictionary
+ *                      whose the french expression begins with this letter
  *
- *						: return : array of integer
+ *						        : return : array of integer
  */
  function get_number_entries()
  {
- 	// receive the number of entries for each letters
- 	$nbr_entries=NULL;
+ 	  // receive the number of entries for each letters
+ 	  $nbr_entries = [];
 
- 	//call the model to fill $nbr_entries
- 	try
- 	{
- 		 include(dirname(__FILE__,3).'/model/dictionaryHandler/getNumberEntries.php');
- 	}
- 	catch(Exception $e)
-	{
-		if ($_SESSION['lang']=='english')
-		{
-			$msg='data base error: try later';
-			include(dirname(__FILE__,3).'/view/dictionary/errorEnglishTemplate.php');
-		}
-		else
-		{
-			$msg='erreur de la base de donnée: réessayer plus tard';
-			include(dirname(__FILE__,3).'/view/dictionary/errorFrenchTemplate.php');
-		}
-	}
+ 	  //call the model to fill $nbr_entries
+ 	  include(dirname(__FILE__,3).'/model/dictionaryHandler/getNumberEntries.php');
 
-	return $nbr_entries;
+    return $nbr_entries;
  }
 
 
 /**
  * get_offset	: return the offset of the first entry to display
  *
- *				: param : $letter	: string
- *						: $page_nbr	: integer
+ *				    : param : $page_nbr	: integer
  *
- *				: return: integer
+ *				            : return: integer
  */
- function get_offset($letter,$page_nbr)
- {
-	global $nbr_entries;
-	global $entries_per_page;
+function get_offset($page_nbr)
+{
+  global $entries_per_page;
 
-	$index = ord($letter) - 97;
-	$total_entries = 0;
-
-	for ($i=0 ; $i < $index ; $i++)
-	{
-		$total_entries = $total_entries + $nbr_entries[$i];
-	}
-	return $total_entries + ($page_nbr - 1)*$entries_per_page;
- }
-
+  return ($page_nbr - 1) * $entries_per_page;
+}
 
 /**
  * get_nbr_entries_to_display	: return the number of entries to display
  *
- *								: param 	: $letter	: string
- *											: $page_nbr	: integer
+ *								            : param : $letter	  : string
+ *											              : $page_nbr	: integer
  *
- *								: return: integer
+ *								            : return: integer
  */
  function get_nbr_entries_to_display($letter,$page_nbr)
  {
@@ -82,7 +56,6 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
 	{
 		return $entries_per_page;
 	}
-
 	if ($page_nbr == $last_page)
 	{
 		return $remainder;

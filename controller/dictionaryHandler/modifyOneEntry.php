@@ -5,23 +5,22 @@ include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFuncti
 
 
 verify_permission('admin services');
-	
 
-/************************************* Check for errors ********************************************/	
 
-// instanciate $entry_id ... 
-// ... and instanciate $french, $english if $_POST is set
+/************************************* Check for errors ********************************************/
+
+// instantiate $french_id and english_id...
+// ... and instantiate $french, $english if a form was submited
 
 include(dirname(__FILE__).'/modifyOneEntryCheckForErrors.php');
-
 
 /***************************** Display modify one entry interface ***********************************/
 
 $request = new EntryModification();
 
-if (!filter_has_var(INPUT_POST,'french'))
+if (!filter_has_var(INPUT_POST,'submit'))
 {
-	$request->displayModifyOneEntryInterfaceTemplate($entry_id);
+	$request->displayModifyOneEntryInterfaceTemplate($french_id,$english_id);
 }
 
 
@@ -29,6 +28,7 @@ if (!filter_has_var(INPUT_POST,'french'))
 
 else
 {
-	$entry = new StoredDictionaryEntry($french,$english,$entry_id);
+	verify_modification_entry_permission($french_id,$english_id);
+	$entry = new DictionaryEntry($french,$french_id,$english,$english_id);
 	$request->modify($entry);
 }

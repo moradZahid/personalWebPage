@@ -1,6 +1,6 @@
 <?php
 include_once(dirname(__FILE__).'/EntriesAddition.class.php');
-include(dirname(__FILE__).'/controllerDictionaryHandlerFunctions.php');
+include_once(dirname(__FILE__).'/controllerDictionaryHandlerFunctions.php');
 
 class EntriesAdditionWithFile extends EntriesAddition
 {

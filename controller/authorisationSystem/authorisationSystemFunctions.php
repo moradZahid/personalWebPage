@@ -17,8 +17,8 @@ function check_service($strg)
 		return 1;
 	case 'delete entries service':
 		return 1;
-	default:	
-		return 0;	
+	default:
+		return 0;
 	}
 }
 
@@ -33,14 +33,14 @@ function verify_permission($service)
 		switch ($service)
 		{
 		case 'add entries service':
-			
+
 			if ($_SESSION['add entries permission']!='allowed')
 			{
 				throw new PermissionDenied();
 			}
 			break;
-			
-			
+
+
 		case 'admin services':
 			if ($_SESSION['admin services permission']!='allowed')
 			{
@@ -66,4 +66,10 @@ function verify_permission($service)
 			header('Location:'.$url);
 		}
 	}
+}
+
+
+function verify_modification_entry_permission($french_id,$english_id)
+{
+	return true;
 }

@@ -1,11 +1,11 @@
 <?php
 include_once(dirname(__FILE__).'/StoredDictionaryEntry.class.php');
-
+include_once(dirname(__FILE__).'/controllerDictionaryHandlerFunctions.php');
 
 class DictionaryService
 {
 	/**
-	 * getStoredEntriesList	: Convert raw data from the dictionary table into a list of 
+	 * getStoredEntriesList	: Convert raw data from the dictionary table into a list of
 	 *						  StoredDictionaryEntry objects
 	 *
 	 *						: param : $data : array of array of string
@@ -14,44 +14,44 @@ class DictionaryService
 	 */
 	private function getStoredEntriesList($data)
 	{
-		$i=0;
 		foreach($data as $elt)
 		{
-			$entry=new StoredDictionaryEntry($elt['french'],$elt['english'],$elt['ID']);
-			$stored_entries_list[$i]=$entry;
-			$i++;
+			$entry=new StoredDictionaryEntry($elt['french'],
+																			 $elt['french_id'],
+																			 $elt['english'],
+																			 $elt['english_id'],
+																			 $elt['user_id']);
+			$stored_entries_list[] = $entry;
 		}
 		return $stored_entries_list;
-	}	
-	
-	
+	}
+
+
 	/**
-	 * displayStoredEntriesList	: display all the entries of the dictionary table from $offset to
-	 *							  $offset + $nbr in order to either modify or delete them 
-	 *							  (depending on the value of $action)
-	 *							
-	 *							: param : $action	: string
-	 *									: $offset	: integer
-	 *									: $nbr		: integer
+	 * displayStoredEntriesList	: display all the entries of the dictionary table
+	 *														begin by $letter at the page $page_nbr
+	 *
+	 *													: param : $letter		: character
+	 *																	: $page_nbr	: integer
 	 */
-	public function displayStoredEntriesList($offset,$nbr,$action)
+	public function displayStoredEntriesList($letter,$page_nbr)
 	{
-		$data=NULL;
+		$offset = get_offset($page_nbr);
+		$nbr = get_nbr_entries_to_display($letter,$page_nbr);
+		$data = [];
 		include_once(dirname(__FILE__,3).'/model/dictionaryHandler/getSomeEntries.php');
 		$stored_entries_list=$this->getStoredEntriesList($data);
 		include_once(dirname(__FILE__,3).'/view/dictionaryHandler/displayStoredEntriesTemplate.php');
 	}
-	
+
 	/**
 	 * displayAvailableLetters	: display all the letters which are initials of a french expression
-	 *								: according to the array $nbr_entries given in parametre
-	 *
-	 *								: param : $action	: string (either 'modify' or 'delete')
+	 *													: according to the array $nbr_entries given in parametre
 	 */
-	 public function displayAvailableLetters($action)
+	 private function displayAvailableLetters()
 	 {
 		 global $nbr_entries;
-		 
+
 		 echo '<p>';
 		 foreach ($nbr_entries as $i => $nbr)
 		 {
@@ -59,9 +59,9 @@ class DictionaryService
 			if ($nbr > 0)
 			{
 				$url = $_SESSION['index'];
-				 $url .= '/controller/dictionaryHandler/'.$action.'EntriesController.php';
+				 $url .= '/controller/dictionaryHandler/manageEntriesController.php';
 				 $url .= '?letter='.chr($i+97).'&page=1';
-				 
+
 				 echo '<a href="'.$url.'">';
 				 echo ' '.chr($i+97).' ';
 				 echo '</a>';
@@ -69,33 +69,32 @@ class DictionaryService
 		 }
 		 echo '</p>';
 	 }
-	
-	 
+
+
 	/**
 	 * displayAvailablePages	: display all the page numbers for a letter given in parametre
 	 *
-	 *							: param : $letter	: string
-	 *							: 		: $action	: string (either 'modify' or 'delete')
+	 *							          :param : $letter	: string
 	 */
-	 public function displayAvailablePages($letter,$action)
+	 private function displayAvailablePages($letter)
 	 {
 		 global $nbr_entries;
 		 global $entries_per_page;
-		 
+
 		 $index = ord($letter) - 97;
-		 
+
 		 $total_pages = ceil($nbr_entries[$index] / $entries_per_page);
-		 
+
 		 echo '<p>';
 		 for ($i=0 ; $i < $total_pages ; $i++)
 		 {
 		 	 $url = $_SESSION['index'];
-			 $url .= '/controller/dictionaryHandler/'.$action.'EntriesController.php';
+			 $url .= '/controller/dictionaryHandler/manageEntriesController.php';
 			 $url .= '?letter='.$letter.'&page='.($i+1);
 			 echo '<a href="'.$url.'">';
 			 echo ' '.($i+1).' ';
-			 echo '</a>'; 
+			 echo '</a>';
 		 }
-		 echo '</p>';	 
+		 echo '</p>';
 	 }
 }

@@ -8,8 +8,8 @@
 	</head>
 
 	<body>
-		<h1>Administrative page</h1>
-		<h2>Add entries</h2>
+		<h1>Administrative Page</h1>
+		<h2>Add Entries Service</h2>
 		<form method='post'
 		      action="<?= $url.'/controller/dictionaryHandler/addEntriesController.php'?>"
 		      enctype='multipart/form-data'>
@@ -24,7 +24,7 @@
 				<label for="fr:eng">fr:eng</label></p>
 
 				<br>
-				
+
 			<p><input type="radio" name="method" value="manually" id="manually">
 				<label for="manually">add an entry manually</label></p>
 			<p><label for="french">French expression</label>

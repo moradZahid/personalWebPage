@@ -16,23 +16,23 @@ class EntryModification
 	 	 $entry = new StoredDictionaryEntry($data['french'],$data['english'],$data['ID']);
 	 	 return $entry;
 	 }
-	
-	
+
+
 	/**
 	 * displayModifyOneEntryInterfaceTemplate	: display the interface to modify the entry whose id is given
 	 *											  in parameter
 	 *
 	 *										 	: param : $entry_id : integer
 	 */
-	 public function displayModifyOneEntryInterfaceTemplate($entry_id)
+	 public function displayModifyOneEntryInterfaceTemplate($french_id,$english_id)
 	 {
-		$data=NULL;
+		$data = [];
 		include(dirname(__FILE__,3).'/model/dictionaryHandler/getOneEntry.php');
 		$entry = $this->getStoredEntry($data);
-		
+
 		include(dirname(__FILE__,3).'/view/dictionaryHandler/modifyOneEntryInterfaceTemplate.php');
-	} 
-	
+	}
+
 	/**
 	 * modify	: Modify the entry given in parameter
 	 *
@@ -41,7 +41,7 @@ class EntryModification
 	 public function modify($entry)
 	 {
 		include(dirname(__FILE__,3).'/model/dictionaryHandler/modifyOneEntry.php');
-		
+
 		$_SESSION['msg'] = 'Entry modified';
 		$url = $_SESSION['index'];
 		$url .= '/controller/frontalController.php?from=admin services';
