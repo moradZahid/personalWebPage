@@ -21,8 +21,8 @@ else
 	{
 	case 'translation query':
 
-		$_SESSION['service']=NULL;
-		include(dirname(__FILE__).'/dictionary/dictionaryController.php');
+		$_SESSION['service'] = NULL;
+		header('Location:'.$url.'/controller/dictionary/dictionaryController.php');
 		break;
 
 
