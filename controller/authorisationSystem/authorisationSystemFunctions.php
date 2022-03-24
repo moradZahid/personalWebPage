@@ -1,4 +1,5 @@
 <?php
+include_once(dirname(__FILE__,3).'/model/authorisationSystem/modelAuthorisationSystemFunctions.php');
 
 /**
  * check_service	: check if the string given in paramater is a regular name of service
@@ -53,7 +54,7 @@ function verify_permission($service)
 	{
 		if ($_SESSION['lang']=='english')
 		{
-			$_SESSION['msg']='Permission denied: your not allowed to use this service';
+			$_SESSION['msg']='Permission denied: you are not allowed to use this service';
 			$url = $_SESSION['index'];
 			$url .= '/controller/frontalController.php?from=error english';
 			header('Location:'.$url);
@@ -71,5 +72,24 @@ function verify_permission($service)
 
 function verify_modification_entry_permission($french_id,$english_id)
 {
+	if ($_SESSION['login'] == 'admin')
+	{
+		return true;
+	}
+	$owner = get_owner_entry($french_id,$english_id);
+	try
+	{
+		if ($owner != $_SESSION['user_id'])
+		{
+			throw new PermissionDenied();
+		}
+	}
+	catch(PermissionDenied $e)
+	{
+		$_SESSION['msg'] = 'Permission denied: you are not allowed to modifie or delete this entry';
+		$url = $_SESSION['index'];
+		$url .= '/controller/dictionaryHandler/manageEntriesController.php?letter=a&page=1';
+		header('Location:'.$url);
+	}
 	return true;
 }

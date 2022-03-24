@@ -2,13 +2,23 @@
 // connection to the database
 include($_SESSION['db']);
 
+$str_prep_fr = 'UPDATE French SET expression=:french
+ 								WHERE french_id=:french_id';
+$str_prep_en = 'UPDATE English SET expression=:english
+								WHERE english_id=:english_id';
+
 try
 {
-	$prep = $db->prepare('UPDATE dictionary SET french=:french_expr, english=:english_expr WHERE ID=:entry_id'); 
-	
-	$prep->execute(array( 'french_expr' => $entry->getFrench(),
-						  'english_expr' => $entry->getEnglish(),
-						  'entry_id' => $entry->getEntryId()));
+	$prep = $db->prepare($str_prep_fr);
+
+	$prep->execute(array( 'french' => $entry->getFrench(),
+												'french_id' => $entry->getFrenchId()));
+
+
+	$prep = $db->prepare($str_prep_en);
+
+	$prep->execute(array('english' => $entry->getEnglish(),
+						  				 'english_id' => $entry->getEnglishId()));
 }
 catch(Exception $e)
 {

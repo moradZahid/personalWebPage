@@ -22,15 +22,19 @@ $url = $_SESSION['index'];
 		$this->displayAvailableLetters();
 		$this->displayAvailablePages($letter);
 		?>
-   <form method="post" action="<?= $url.'/controller/dictionaryHandler/addEntriesController.php' ?>">
-		<p><label for="french">French expression</label>
-			<input type="text" name="french" id="french">
-			- - -
-			<label for="english">English expression</label>
-			<input type="text" name="english" id="english">
-		</p>
-		<input type="hidden" name="method" value="manually">
-		<p><input type="submit" value="submit">
-	</form>
+	  <form method="post" action="<?= $url.'/controller/dictionaryHandler/addEntriesController.php' ?>">
+			<p><label for="french">French expression</label>
+				<input type="text" name="french" id="french">
+				- - -
+				<label for="english">English expression</label>
+				<input type="text" name="english" id="english">
+			</p>
+			<input type="hidden" name="method" value="manually">
+			<p><input type="submit" value="submit">
+		</form>
+		<p><?php
+		  echo $_SESSION['msg'];
+		  $_SESSION['msg'] = NULL;
+	  ?></p>
 	</body>
 </html>
