@@ -4,9 +4,12 @@ include($_SESSION['db']);
 
 try
 {
-	$prep = $db->prepare('DELETE FROM dictionary WHERE ID=:entry_id'); 
+	$prep = $db->prepare('DELETE FROM Dictionary 
+						WHERE french_id=:french_id
+						AND english_id=:english_id'); 
 	
-	$prep->execute(array('entry_id' => $entry_id));
+	$prep->execute(array('french_id' => $french_id,
+						'english_id' => $english_id));
 }
 catch(Exception $e)
 {

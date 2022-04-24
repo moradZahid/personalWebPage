@@ -1,6 +1,5 @@
 <?php
 include_once(dirname(__FILE__).'/EntryModification.class.php');
-include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
 include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFunctions.php');
 
 

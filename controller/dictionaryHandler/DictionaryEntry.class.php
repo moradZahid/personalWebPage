@@ -33,7 +33,7 @@ class DictionaryEntry
 	}
 
 	/**
-	 * getFrench : return the attribute frenchId
+	 * getFrenchId : return the attribute frenchId
 	 */
 	public function getFrenchId()
 	{
@@ -42,7 +42,7 @@ class DictionaryEntry
 
 
 	/**
-	 * getEnglish : return the attribute englishId
+	 * getEnglishId : return the attribute englishId
 	 */
 	public function getEnglishId()
 	{
