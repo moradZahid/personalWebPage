@@ -65,7 +65,7 @@ else
 		break;
 
 
-	case 'admin services':
+	case 'manage entries services':
 
 		include(dirname(__FILE__).'/authorisationSystem/authorisationSystemController.php');
 		break;

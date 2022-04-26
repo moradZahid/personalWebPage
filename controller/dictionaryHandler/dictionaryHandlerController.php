@@ -15,11 +15,11 @@ case 'add entries service':
 	break;
 
 
-case 'admin services':
+case 'manage entries services':
 
-	verify_permission('admin services');
+	verify_permission('manage entries services');
 
 	// call administrative services page
-	include(dirname(__FILE__,3).'/view/dictionaryHandler/adminPageTemplate.php');
+	include(dirname(__FILE__,3).'/view/dictionaryHandler/dictionaryHandlerIndexTemplate.php');
 	break;
 }

@@ -27,7 +27,7 @@
 
 			<p><input type="submit" value="submit">
 		</form>
-		<a href="<?= $url.'/controller/frontalController.php?from=admin services'?>">
+		<a href="<?= $url.'/controller/frontalController.php?from=manage entries services'?>">
 			return to the administrative page
 		</a>
 	</body>

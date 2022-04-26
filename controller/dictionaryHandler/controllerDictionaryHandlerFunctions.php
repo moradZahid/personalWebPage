@@ -29,9 +29,9 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
  */
 function get_offset($page_nbr)
 {
-  global $entries_per_page;
+  global $ENTRIES_PER_PAGE;
 
-  return ($page_nbr - 1) * $entries_per_page;
+  return ($page_nbr - 1) * $ENTRIES_PER_PAGE;
 }
 
 /**
@@ -45,22 +45,22 @@ function get_offset($page_nbr)
  function get_nbr_entries_to_display($letter,$page_nbr)
  {
 	global $nbr_entries;
-	global $entries_per_page;
+	global $ENTRIES_PER_PAGE;
 
 	$index = ord($letter) - 97;
 
-	$remainder = $nbr_entries[$index] % $entries_per_page;
-	$last_page = ceil($nbr_entries[$index] / $entries_per_page);
+	$remainder = $nbr_entries[$index] % $ENTRIES_PER_PAGE;
+	$last_page = ceil($nbr_entries[$index] / $ENTRIES_PER_PAGE);
 
 	if ($remainder == 0)
 	{
-		return $entries_per_page;
+		return $ENTRIES_PER_PAGE;
 	}
 	if ($page_nbr == $last_page)
 	{
 		return $remainder;
 	}
-	return $entries_per_page;
+	return $ENTRIES_PER_PAGE;
  }
 
 
@@ -98,7 +98,7 @@ function get_offset($page_nbr)
  {
 
  	global $nbr_entries;
-	global $entries_per_page;
+	global $ENTRIES_PER_PAGE;
 
 	if ($page < 1)
 	{
@@ -107,7 +107,7 @@ function get_offset($page_nbr)
 
 	$index = ord($letter) - 97;
 
-	$last_page = ceil($nbr_entries[$index] / $entries_per_page);
+	$last_page = ceil($nbr_entries[$index] / $ENTRIES_PER_PAGE);
 
 	if ($page > $last_page)
 	{

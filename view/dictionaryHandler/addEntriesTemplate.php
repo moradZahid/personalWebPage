@@ -10,6 +10,10 @@
 	<body>
 		<h1>Administrative Page</h1>
 		<h2>Add Entries Service</h2>
+		<p><?=$_SESSION['msg'] ?></p>
+		<?php $_SESSION['msg'] = NULL ?>
+		<p><a href="<?= $url.'/controller/frontalController.php?from=manage entries services'?>">return to the dictionary handler index page</a></p>
+		<p><a href="<?= $url.'/controller/frontalController.php'?>">return to the home page </a></p>
 		<form method='post'
 		      action="<?= $url.'/controller/dictionaryHandler/addEntriesController.php'?>"
 		      enctype='multipart/form-data'>
@@ -38,8 +42,5 @@
 
 			<p><input type="submit" value="submit">
 		</form>
-		<p><a href="<?= $url.'/controller/frontalController.php'?>">return to the home page </a></p>
-		<p><?=$_SESSION['msg'] ?></p>
-		<?php $_SESSION['msg'] = NULL ?>
 	</body>
 </html>

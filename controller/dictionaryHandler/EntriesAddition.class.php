@@ -17,13 +17,13 @@ class EntriesAddition extends DictionaryService
 	{
 		foreach($data_list as $pair)
 		{
-			$french_id = is_french_expression_in_table($pair[$frenchIndex]);
+			$french_id = get_french_expression_id_in_table($pair[$frenchIndex]);
 			if ($french_id < 1)
 			{
 				$french_id = add_french_expression($pair[$frenchIndex]);
 			}
 
-			$english_id = is_english_expression_in_table($pair[$englishIndex]);
+			$english_id = get_english_expression_id_in_table($pair[$englishIndex]);
 			if ($english_id < 1)
 			{
 				$english_id = add_english_expression($pair[$englishIndex]);

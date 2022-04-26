@@ -10,13 +10,9 @@ function check_service($strg)
 {
 	switch ($strg)
 	{
-	case 'admin services':
+	case 'manage entries services':
 		return 1;
 	case 'add entries service':
-		return 1;
-	case 'modify entries service':
-		return 1;
-	case 'delete entries service':
 		return 1;
 	default:
 		return 0;
@@ -42,8 +38,8 @@ function verify_permission($service)
 			break;
 
 
-		case 'admin services':
-			if ($_SESSION['admin services permission']!='allowed')
+		case 'manage entries services':
+			if ($_SESSION['manage entries services permission']!='allowed')
 			{
 				throw new PermissionDenied();
 			}

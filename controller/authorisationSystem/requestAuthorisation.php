@@ -7,7 +7,7 @@ include_once(dirname(__FILE__).'/authorisationSystemFunctions.php');
 
 $service=$_SESSION['service'];
 
-if (check_service($service)==0) 
+if (check_service($service) == 0) 
 {
 	throw new UnexpectedValue('service');
 }

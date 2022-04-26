@@ -8,7 +8,8 @@
 	</head>
 
 	<body>
-		<h1>Administrative page</h1>
+		<h1>Administrative Page</h1>
+		<h2>Dictionary Handler Index</h2> 
 		<nav>
 			<ul>
 				<li><a href="<?= $url.'/controller/frontalController.php?from=add entries service'?>">Add entries</a>

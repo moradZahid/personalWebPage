@@ -5,7 +5,7 @@ include($_SESSION['db']);
 
 /**
  * store_entry	: store an object of class DictionaryEntry in the table dictionary
- *				:
+ *				
  *				: param	: $entry: Dictionary Entry object
  */
 function store_entry($entry)
@@ -15,11 +15,11 @@ function store_entry($entry)
 	try
 	{
 		$str_prep = 'INSERT INTO Dictionary(french_id, english_id, user_id)
-												VALUES(:fr, :en, :user)';
+					 VALUES(:fr, :en, :user)';
 		$prep=$db->prepare($str_prep);
 		$prep->execute(array('fr' => $entry->getFrenchId(),
-							 					 'en' => $entry->getEnglishId(),
-											 	 'user' => $_SESSION['user_id']));
+							 'en' => $entry->getEnglishId(),
+						 	 'user' => $_SESSION['user_id']));
 	}
 	catch(Exception $e)
 	{
@@ -39,14 +39,13 @@ function store_entry($entry)
 }
 
 /**
- * is_french_expression_in_table	: check if the expression $expr is stored in the dictionary table
+ * get_french_expression_id_in_table	: check if the expression $expr is stored in the dictionary table
  *
  *									: param	: $expr	: string
  *
- *									: return: 1 if the expression is stored
- *									:		: 0 otherwise
+ *									: return: int
  */
-function is_french_expression_in_table($expr)
+function get_french_expression_id_in_table($expr)
 {
 	global $db;
 
@@ -84,14 +83,13 @@ function is_french_expression_in_table($expr)
 }
 
 /**
- * is_english_expression_in_table	: check if the expression $expr is stored in the dictionary table
+ * get_english_expression_id_in_table	: check if the expression $expr is stored in the dictionary table
  *
  *									: param	: $expr	: string
  *
- *									: return: 1 if the expression is stored
- *									:		: 0 otherwise
+ *									: return: int
  */
-function is_english_expression_in_table($expr)
+function get_english_expression_id_in_table($expr)
 {
 	global $db;
 
@@ -130,11 +128,11 @@ function is_english_expression_in_table($expr)
 
 /**
  * add_french_expression	: add an expression in the table French and return
- *												  its id
+ *							  its id
  *
- *													param : $expr : string
+ *							param : $expr : string
  *
- *													return: int
+ *							return: int
  */
  function add_french_expression($expr)
  {
@@ -171,11 +169,11 @@ function is_english_expression_in_table($expr)
 
  /**
   * add_english_expression	: add an expression in the table English and return
-  *												  its id
+  *							  its id
   *
-  *													param : $expr : string
+  *							param : $expr : string
   *
-  *													return: int
+  *							return: int
   */
   function add_english_expression($expr)
   {
@@ -212,12 +210,12 @@ function is_english_expression_in_table($expr)
 
 /**
  * is_entry_in_dictionary	: check if the pair ($french_id,$english_id) is
- *													already in the dictionary
+ *							  already in the dictionary
  *
- * 												: param : $entry 	: object of the class DictionaryEntry
- *																: $english_id : int
+ * 							: param : $entry 	: object of the class DictionaryEntry
+ *									: $english_id : int
  *
- *												: return: bool
+ *							: return: bool
  */
  function is_entry_in_dictionary($entry)
  {
@@ -225,10 +223,10 @@ function is_english_expression_in_table($expr)
 	 try
 	 {
 	   $str_prep = 'SELECT COUNT(*) AS nb FROM Dictionary
-		 							WHERE french_id=:fr AND english_id=:en';
+		 			WHERE french_id=:fr AND english_id=:en';
 		 $prep = $db->prepare($str_prep);
 		 $prep->execute(array('fr' => $entry->getFrenchId(),
-	 												'en' => $entry->getEnglishId()));
+	 		 				  'en' => $entry->getEnglishId()));
 	 }
 	 catch(Exception $e)
    {

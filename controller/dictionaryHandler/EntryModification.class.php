@@ -1,5 +1,5 @@
 <?php
-include_once(dirname(__FILE__).'/StoredDictionaryEntry.class.php');
+include_once(dirname(__FILE__).'/DictionaryEntry.class.php');
 
 
 class EntryModification
@@ -7,27 +7,28 @@ class EntryModification
 	/**
 	 * getStoredEntry	: Convert raw data from the dictionary table into a DictionaryEntry object
 	 *
-	 *							  : param : $data 			: array of string
-	 *												: $french_id 	: integer
-	 *												: $english_id : integer
+	 *				    : param : $data 		: array of string
+	 *							: $french_id 	: integer
+	 *							: $english_id 	: integer
 	 *
-	 *								: return: DictionaryEntry object
+	 *					: return: DictionaryEntry object
 	 */
 	 private function getStoredEntry($data,$french_id,$english_id)
 	 {
 	 	 $entry = new DictionaryEntry($data['french'],
-		 															$french_id,
-																	$data['english'],
-																	$english_id);
+		 							  $french_id,
+									  $data['english'],
+									  $english_id);
 	 	 return $entry;
 	 }
 
 
 	/**
 	 * displayModifyOneEntryInterfaceTemplate	: display the interface to modify the entry whose id is given
-	 *											  									in parameter
+	 *											in parameter
 	 *
-	 *										 										: param : $french_id 	: integer
+	 *										 	: param : $french_id 	: integer
+	 *													: $english_id 	: integer
 	 *																								: $english_id : integer
 	 */
 	 public function displayModifyOneEntryInterfaceTemplate($french_id,$english_id)
@@ -50,7 +51,7 @@ class EntryModification
 
 		$_SESSION['msg'] = 'Entry modified';
 		$url = $_SESSION['index'];
-		$url .= '/controller/frontalController.php?from=admin services';
+		$url .= '/controller/frontalController.php?from=manage entries services';
 		header('Location:'.$url);
 	 }
 }

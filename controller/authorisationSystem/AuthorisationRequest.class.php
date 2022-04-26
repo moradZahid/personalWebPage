@@ -41,18 +41,10 @@ class AuthorisationRequest
 		case 'anonymous':
 			return 'not allowed';
 
-		case 'admin':
-			$_SESSION['add entries permission'] = 'allowed';
-			$_SESSION['admin services permission'] = 'allowed';
-			return 'allowed';
-
 		default:
-			if ($this->service == 'add entries service')
-			{
-				$_SESSION['add entries permission'] = 'allowed';
-				return 'allowed';
-			}
-			return 'not allowed';
+			$_SESSION['add entries permission'] = 'allowed';
+			$_SESSION['manage entries services permission'] = 'allowed';
+			return 'allowed';
 		}
 	}
 

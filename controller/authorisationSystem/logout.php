@@ -1,6 +1,6 @@
 <?php
 $_SESSION['add entries permission']='not allowed';
-$_SESSION['admin services permission']='not allowed';
+$_SESSION['manage entries services permission']='not allowed';
 $_SESSION['login']='anonymous';
 $_SESSION['msg']=NULL;
 

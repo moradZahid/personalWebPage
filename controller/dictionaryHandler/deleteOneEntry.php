@@ -3,7 +3,7 @@ include_once(dirname(__FILE__).'/EntryDelation.class.php');
 include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFunctions.php');
 
 
-verify_permission('admin services');
+verify_permission('manage entries services');
 	
 
 /************************************* Check for errors ********************************************/	

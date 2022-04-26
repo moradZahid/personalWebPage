@@ -1,52 +1,51 @@
 <?php
-include_once(dirname(__FILE__).'/StoredDictionaryEntry.class.php');
+include_once(dirname(__FILE__).'/DictionaryEntry.class.php');
 include_once(dirname(__FILE__).'/controllerDictionaryHandlerFunctions.php');
 
 class DictionaryService
 {
 	/**
-	 * getStoredEntriesList	: Convert raw data from the dictionary table into a list of
+	 * getEntriesList	: Convert raw data from the dictionary table into a list of
 	 *						  StoredDictionaryEntry objects
 	 *
 	 *						: param : $data : array of array of string
 	 *
 	 *						: return: array of StoredDictionaryEntry objects
 	 */
-	private function getStoredEntriesList($data)
+	private function getEntriesList($data)
 	{
 		foreach($data as $elt)
 		{
-			$entry=new StoredDictionaryEntry($elt['french'],
-																			 $elt['french_id'],
-																			 $elt['english'],
-																			 $elt['english_id'],
-																			 $elt['user_id']);
-			$stored_entries_list[] = $entry;
+			$entry = new DictionaryEntry($elt['french'],
+										 $elt['french_id'],
+										 $elt['english'],
+										 $elt['english_id']);
+			$entries_list[] = $entry;
 		}
-		return $stored_entries_list;
+		return $entries_list;
 	}
 
 
 	/**
-	 * displayStoredEntriesList	: display all the entries of the dictionary table
-	 *														begin by $letter at the page $page_nbr
+	 * displayEntriesList	: display all the entries of the dictionary table
+	 *						  begining by $letter at the page $page_nbr
 	 *
-	 *													: param : $letter		: character
-	 *																	: $page_nbr	: integer
+	 *					 	: param : $letter	: character
+	 *							    : $page_nbr	: integer
 	 */
-	public function displayStoredEntriesList($letter,$page_nbr)
+	public function displayEntriesList($letter,$page_nbr)
 	{
 		$offset = get_offset($page_nbr);
 		$nbr = get_nbr_entries_to_display($letter,$page_nbr);
 		$data = [];
 		include_once(dirname(__FILE__,3).'/model/dictionaryHandler/getSomeEntries.php');
-		$stored_entries_list=$this->getStoredEntriesList($data);
-		include_once(dirname(__FILE__,3).'/view/dictionaryHandler/displayStoredEntriesTemplate.php');
+		$entries_list = $this->getEntriesList($data);
+		include_once(dirname(__FILE__,3).'/view/dictionaryHandler/displayEntriesTemplate.php');
 	}
 
 	/**
 	 * displayAvailableLetters	: display all the letters which are initials of a french expression
-	 *													: according to the array $nbr_entries given in parametre
+	 *							: according to the array $nbr_entries
 	 */
 	 private function displayAvailableLetters()
 	 {
@@ -74,16 +73,16 @@ class DictionaryService
 	/**
 	 * displayAvailablePages	: display all the page numbers for a letter given in parametre
 	 *
-	 *							          :param : $letter	: string
+	 *							: param : $letter	: string
 	 */
 	 private function displayAvailablePages($letter)
 	 {
 		 global $nbr_entries;
-		 global $entries_per_page;
+		 global $ENTRIES_PER_PAGE;
 
 		 $index = ord($letter) - 97;
 
-		 $total_pages = ceil($nbr_entries[$index] / $entries_per_page);
+		 $total_pages = ceil($nbr_entries[$index] / $ENTRIES_PER_PAGE);
 
 		 echo '<p>';
 		 for ($i=0 ; $i < $total_pages ; $i++)

@@ -36,7 +36,7 @@ class EntryDelation
 		
 		$_SESSION['msg'] = 'Entry delated';
 		$url = $_SESSION['index'];
-		$url .= '/controller/frontalController.php?from=admin services';
+		$url .= '/controller/frontalController.php?from=manage entries services';
 		header('Location:'.$url);
 	 } 
 }

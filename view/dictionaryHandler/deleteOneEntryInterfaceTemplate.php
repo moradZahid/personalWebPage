@@ -21,10 +21,10 @@ $url_confirmation .= '&confirmation=confirmed';
 		<p>
             Are you sure you want to delete this entry? 
             <a href="<?= $url_confirmation ?>"> yes </a> /
-            <a href="<?= $url.'/controller/frontalController.php?from=admin services'?>">
+            <a href="<?= $url.'/controller/frontalController.php?from=manage entries services'?>">
              no </a>
         </p> 
-		<a href="<?= $url.'/controller/frontalController.php?from=admin services'?>">
+		<a href="<?= $url.'/controller/frontalController.php?from=manage entries services'?>">
 			return to the administrative page
 		</a>
 	</body>

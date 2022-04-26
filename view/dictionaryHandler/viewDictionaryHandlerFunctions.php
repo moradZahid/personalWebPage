@@ -1,13 +1,12 @@
 <?php
-include_once(dirname(__FILE__,3).'/controller/dictionaryHandler/StoredDictionaryEntry.class.php');
+include_once(dirname(__FILE__,3).'/controller/dictionaryHandler/DictionaryEntry.class.php');
 
 
 /**
  * display_entry	: display the entry given in parameter and a link to the controller which will either
  *				  	  modify or delete the entry (depending on the value of $action)
  *
- *					: param	: $entry 	: StoredDictionaryEntry object
- *							: $action	: string
+ *					: param	: $entry 	: DictionaryEntry object
  */
  function display_entry($entry)
  {

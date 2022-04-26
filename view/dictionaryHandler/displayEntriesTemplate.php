@@ -13,9 +13,13 @@ $url = $_SESSION['index'];
 	<body>
 		<h1>Administrative Page</h1>
 		<h2>Manage Entries Services</h2>
-		<p><a href="<?= $url.'/controller/frontalController.php?from=admin services'?>">return to the main page </a></p>
+		<p><?php
+		  echo $_SESSION['msg'];
+		  $_SESSION['msg'] = NULL;
+	  	?></p><br>
+		<p><a href="<?= $url.'/controller/frontalController.php?from=manage entries services'?>">return to the main page </a></p>
 		<?php
-		foreach($stored_entries_list as $entry)
+		foreach($entries_list as $entry)
 		{
 			display_entry($entry);
 		}
@@ -32,9 +36,5 @@ $url = $_SESSION['index'];
 			<input type="hidden" name="method" value="manually">
 			<p><input type="submit" value="submit">
 		</form>
-		<p><?php
-		  echo $_SESSION['msg'];
-		  $_SESSION['msg'] = NULL;
-	  ?></p>
 	</body>
 </html>
