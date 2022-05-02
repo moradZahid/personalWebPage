@@ -3,7 +3,7 @@
 // check for service
 $service=$_SESSION['service'];
 
-if (check_service($service)==0) 
+if (check_service($service)==0)
 {
 	throw new UnexpectedValue('service');
 }

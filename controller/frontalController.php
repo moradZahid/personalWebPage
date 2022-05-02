@@ -1,5 +1,7 @@
 <?php
 session_start();
+$url = $_SESSION['index'];
+
 if (!filter_has_var(INPUT_GET,"from"))
 {
 	$_SESSION['service']=NULL;
@@ -10,97 +12,97 @@ if (!filter_has_var(INPUT_GET,"from"))
 	else
 	{
 		include(dirname(__FILE__,2).'/view/homeFrenchTemplate.php');
-	}		
+	}
 }
 else
-{	
+{
 	$call=filter_input(INPUT_GET,'from',FILTER_SANITIZE_SPECIAL_CHARS);
 	switch ($call)
 	{
-	case 'translation query': 
-		
-		$_SESSION['service']=NULL;
-		include(dirname(__FILE__).'/dictionary/dictionaryController.php');
+	case 'translation query':
+
+		$_SESSION['service'] = NULL;
+		header('Location:'.$url.'/controller/dictionary/dictionaryController.php');
 		break;
-		
-		
-	case 'cv': 
-		
+
+
+	case 'cv':
+
 		$_SESSION['service']=NULL;
 		$_SESSION['msg']=NULL;
 		include(dirname(__FILE__).'/cv/cv.php');
 		break;
-		
-		
-	case 'functionalView': 
-		
+
+
+	case 'functionalView':
+
 		$_SESSION['service']=NULL;
 		$_SESSION['msg']=NULL;
 		include(dirname(__FILE__).'/functionalView/functionalView.php');
 		break;
-	
-		
-	case 'staticView': 
-		
+
+
+	case 'staticView':
+
 		$_SESSION['service']=NULL;
 		$_SESSION['msg']=NULL;
 		include(dirname(__FILE__).'/staticView/staticView.php');
 		break;
-		
-	case 'dynamicView': 
-		
+
+	case 'dynamicView':
+
 		$_SESSION['service']=NULL;
 		$_SESSION['msg']=NULL;
 		include(dirname(__FILE__).'/dynamicView/dynamicView.php');
 		break;
-			
-		
+
+
 	case 'change lang':
-		
+
 		$_SESSION['service']=NULL;
 		$_SESSION['msg']=NULL;
 		include(dirname(__FILE__).'/changeLang/changeLangController.php');
 		break;
-		
-		
-	case 'admin services':
-		
+
+
+	case 'manage entries services':
+
 		include(dirname(__FILE__).'/authorisationSystem/authorisationSystemController.php');
 		break;
-		
-		
+
+
 	case 'add entries service':
-		
+
 		include(dirname(__FILE__).'/authorisationSystem/authorisationSystemController.php');
 		break;
-		
-		
+
+
 	case 'modify entries service':
-		
+
 		include(dirname(__FILE__).'/authorisationSystem/authorisationSystemController.php');
 		break;
-		
-		
+
+
 	case 'delete entries service':
-		
+
 		include(dirname(__FILE__).'/authorisationSystem/authorisationSystemController.php');
 		break;
-		
-		
+
+
 	case 'authentication interface':
-		
+
 		include(dirname(__FILE__).'/authorisationSystem/authenticationController.php');
-		break;	
-		
-		
+		break;
+
+
 	case 'authorisation system':
-		
-		include(dirname(__FILE__).'/dictionaryHandler/dictionaryHandlerController.php');
-		break;	
-		
-		
+
+		header('Location:'.$url.'/controller/dictionaryHandler/dictionaryHandlerController.php');
+		break;
+
+
 	case 'logout':
 		include(dirname(__FILE__).'/authorisationSystem/logout.php');
 		break;
-	}	
+	}
 }

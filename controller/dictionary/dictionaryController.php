@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once(dirname(__FILE__).'/dictionaryExceptions.php');
-	
+
 
 try
 {
@@ -45,13 +45,13 @@ catch(UnexpectedValue $e)
 	$_SESSION['result'] = NULL;
 	if ($_SESSION['lang'] == 'english')
 	{
-		$_SESSION['msg'] = 'error: the variable'.$e->getVariable().' has an unexpected value';
+		$_SESSION['msg'] = 'error: the variable'.$e->getMessage().' has an unexpected value';
 	}
 	else
 	{
-		$_SESSION['msg'] = 'erreur: la variable'.$e->getVariable().'a une valeur inattendue';
-	}	
+		$_SESSION['msg'] = 'erreur: la variable'.$e->getMessage().'a une valeur inattendue';
+	}
 	$url = $_SESSION['index'];
 	$url .= '/controller/frontalController.php';
 	header('Location:'.$url);
-}	
+}

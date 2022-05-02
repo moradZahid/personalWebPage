@@ -5,14 +5,18 @@ include($_SESSION['db']);
 for ($i=0; $i<26; $i++)
 {
 	// prepare the query
-	$strg_query = 'SELECT COUNT(*) AS nbr FROM dictionary WHERE french LIKE "';
-	$strg_query .= chr($i+97);
-	$strg_query .= '%"';
-	
+	$str_query = 'SELECT COUNT(*) AS nbr
+								 FROM French INNER JOIN Dictionary INNER JOIN English
+								 ON French.french_id=Dictionary.french_id
+								 AND English.english_id=Dictionary.english_id
+								 WHERE French.expression LIKE "';
+	$str_query .= chr($i+97);
+	$str_query .= '%"';
+
 	// execute the query
 	try
 	{
-		$ans=$db->query($strg_query);
+		$ans = $db->query($str_query);
 	}
 	catch(Exception $e)
 	{
@@ -29,7 +33,7 @@ for ($i=0; $i<26; $i++)
 		$url .= '/controller/frontalController.php';
 		header('Location:'.$url);
 	}
-	
+
 	// get the number of entries
 	$data = $ans->fetch();
 	$nbr_entries[$i] = $data['nbr'];

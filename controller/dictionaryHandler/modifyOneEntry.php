@@ -1,34 +1,31 @@
 <?php
 include_once(dirname(__FILE__).'/EntryModification.class.php');
-include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
 include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFunctions.php');
 
 
-verify_permission('admin services');
-	
+verify_permission('manage entries services');
 
-/************************************* Check for errors ********************************************/	
+/************************************* Check for errors ********************************************/
 
-// instanciate $entry_id ... 
-// ... and instanciate $french, $english if $_POST is set
+// instantiate $french_id and english_id...
+// ... and instantiate $french, $english if a form was submited
 
 include(dirname(__FILE__).'/modifyOneEntryCheckForErrors.php');
-
+verify_modification_entry_permission($french_id,$english_id);
 
 /***************************** Display modify one entry interface ***********************************/
 
 $request = new EntryModification();
 
-if (!filter_has_var(INPUT_POST,'french'))
+if (empty($_POST))
 {
-	$request->displayModifyOneEntryInterfaceTemplate($entry_id);
+	$request->displayModifyOneEntryInterfaceTemplate($french_id,$english_id);
 }
-
 
 /************************************* Modify the entry ***********************************************/
 
 else
 {
-	$entry = new StoredDictionaryEntry($french,$english,$entry_id);
+	$entry = new DictionaryEntry($french,$french_id,$english,$english_id);
 	$request->modify($entry);
 }

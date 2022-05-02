@@ -9,22 +9,35 @@ try
 }
 catch(IsNotSet $e)
 {
-	$_SESSION['msg']='The modality is not set';
+	$_SESSION['msg'] = 'The ';
+	$_SESSION['msg'] .= $e->getMessage();
+	$_SESSION['msg'] .= ' is not set';
 	$url = $_SESSION['index'];
-	$url='/controller/frontalController.php?from=add entries service';
+	$url .='/controller/frontalController.php?from=add entries service';
 	header('Location:'.$url);
 }
 catch(UnexpectedValue $e)
 {
-	$_SESSION['msg']='The modality has not the expected value';
+	$_SESSION['msg'] = 'The ';
+	$_SESSION['msg'] .= $e->getMessage();
+	$_SESSION['msg'] .= ' has not the expected value';
 	$url = $_SESSION['index'];
-	$url='/controller/frontalController.php?from=add entries service';
+	$url .='/controller/frontalController.php?from=add entries service';
 	header('Location:'.$url);
 }
 catch(FileError $e)
 {
-	$_SESSION['msg']=$e->getComplementInfo();
+	$_SESSION['msg'] = $e->getMessage();
 	$url = $_SESSION['index'];
 	$url='/controller/frontalController.php?from=add entries service';
+	header('Location:'.$url);
+}
+catch(EmptyString $e)
+{
+	$_SESSION['msg'] = 'The field ';
+	$_SESSION['msg'] .= $e->getMessage();
+	$_SESSION['msg'] .= ' is empty';
+	$url = $_SESSION['index'];
+	$url .='/controller/frontalController.php?from=add entries service';
 	header('Location:'.$url);
 }
