@@ -5,7 +5,7 @@ include($_SESSION['db']);
 
 try
 {
-	$prep=$db->prepare('SELECT ID, password FROM users_list WHERE login=:log');
+	$prep=$db->prepare('SELECT user_id, password FROM users_list WHERE login=:log');
 	$prep->execute(array('log' => $this->login));
 }
 catch(Exception $e)

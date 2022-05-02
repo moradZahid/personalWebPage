@@ -14,13 +14,17 @@ class AuthenticationRequest
 
 
 	/**
-	 * isRegistred	: check the users list for the 'login' and 'password' given by the user
+	 * checkForLoginPassword : check the users list for the 'login' and 'password' given by the user
+	 * 				  		   and return the user_id if the login and password are correct otherwise
+	 * 						   the method returns 0
+	 * 
+	 * 						 : return : integer
 	 */
-	private function isRegistered()
+	private function checkForLoginPassword()
 	{
 		$data=NULL;
 
-		// check if the 'login' is stored in the 'users_list' table and get the password in $data
+		// check if the 'login' is stored in the 'users_list' table and get the password and user_id in $data
 		include_once(dirname(__FILE__,3).'/model/authorisationSystem/checkRegister.php');
 
 		// if the login is stored in the table...
@@ -31,7 +35,7 @@ class AuthenticationRequest
 		// ...check the validity of the password
 		if (password_verify($this->password,$data['password']))
 		{
-			return $data['ID'];
+			return $data['user_id'];
 		}
 		else
 		{
@@ -47,7 +51,7 @@ class AuthenticationRequest
 	public function authenticate()
 	{
 		$service=$_SESSION['service'];
-		$user_id = $this->isRegistered();
+		$user_id = $this->checkForLoginPassword();
 		if ($user_id > 0)
 		{
 			$_SESSION['login'] = $this->login;
