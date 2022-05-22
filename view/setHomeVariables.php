@@ -1,5 +1,7 @@
 <?php 
 $url = filter_var($_SESSION['index'],FILTER_SANITIZE_SPECIAL_CHARS); 
+$fonts = filter_var($_SESSION['fonts'],FILTER_SANITIZE_SPECIAL_CHARS);
+
 if ($_SESSION['last_expr'] !== NULL)
 {
 	$last_expr = filter_var($_SESSION['last_expr'],FILTER_SANITIZE_SPECIAL_CHARS);

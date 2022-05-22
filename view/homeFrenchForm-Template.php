@@ -1,29 +1,26 @@
 <form method="post"
-	  action="<?= $url.'/controller/dictionary/dictionaryController.php'?>"> 
+	action="<?= $url.'/controller/dictionary/dictionaryController.php'?>"
+	id="translation-form"> 
 
-	<div id="expression">
-		<label for="expression">Terme à traduire :</label>
-		<input type="text" name="expression"
-			   value="<?=$last_expr?>">
-	</div>
-
-	<label for="language">en</label>
+	<label for="expression"><p>Terme à traduire :</p></label>
+	<input type="text" name="expression" id="expression"
+		   value="<?=$last_expr?>">
+	
 	<div id="language">
-		<input type="radio" name="language" value="french"
-			   <?php if ($_SESSION['last_lang_trans'] == 'french')
- 			   		 {
-			   		 	 echo 'checked';
-			   		 }?> >
+		<span id="in">en</span> 
+		<input type="radio" name="language" value="french" id="french"
+			<?php if ($_SESSION['last_lang_trans'] == 'french')
+			{
+				echo 'checked';
+			}?> >
 		<label for="french">français</label><br>
-
-		<input type="radio" name="language" value="english"
-			   <?php if ($_SESSION['last_lang_trans'] == 'english')
-			   		 {
-			   		 	 echo 'checked';
-			   		 }?> >
+		<input type="radio" name="language" value="english" id="english"
+			<?php if ($_SESSION['last_lang_trans'] == 'english')
+			{
+				echo 'checked';
+			}?> >
 		<label for="english">anglais</label>
 	</div>
-
-	<input type="submit" value="traduire">
-
+	<input type="submit" value="traduire" id="submit">
+	<span id="result"><?= $result ?></span>
 </form>

@@ -8,6 +8,5 @@
 		    	<option value='english'>anglais</option>
 		   </select>
 		   <input type="submit" value="go" >
-		
 	</form>
 </div>
