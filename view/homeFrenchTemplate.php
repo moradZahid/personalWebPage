@@ -1,5 +1,5 @@
 <?php 
-// set $url, $msg, $result and $last_result
+// set $url, $fonts, $msg, $result and $last_result
 include(dirname(__FILE__).'/setHomeVariables.php');
 ?>
 
@@ -14,7 +14,7 @@ include(dirname(__FILE__).'/setHomeVariables.php');
 		<?php include(dirname(__FILE__).'/headerTemplate.php') ?>
 		<main>
 			<?php include(dirname(__FILE__).'/changeLang/changeLangFrenchTemplate.php') ?>
-			<h1>Dictionnaire français/anglais de termes mathématiques</h1>
+			<h1>Dictionnaire français-anglais de termes mathématiques</h1>
 			
 			<div id="main-container">
 					<!-- form -->

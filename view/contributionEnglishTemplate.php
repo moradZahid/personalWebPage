@@ -3,5 +3,7 @@
 	    <a href="<?= $url.'/controller/frontalController.php?from=add entries service'?>"> 
 	    add entries</a>.</p>
 	<p> For that you need to be registered.
-	    To register, please send an <a href="mailto:morad.zahid@laposte.net">e-mail</a>.</p>
+		<a href="<?= $url.'/controller/frontalController.php?from=createUserAccount'?>">
+		Create a user account.</a>
+	</p>
 </div>

@@ -104,5 +104,11 @@ else
 	case 'logout':
 		include(dirname(__FILE__).'/authorisationSystem/logout.php');
 		break;
+	
+
+	case 'createUserAccount':
+		$_SESSION['service'] = 'createUserAccount';
+		header('Location:'.$url.'/controller/userAccountHandler/userAccountController.php');
+		break;
 	}
 }
