@@ -11,7 +11,7 @@ include(dirname(__FILE__).'/setCreateUserAccountVariables.php');
 
 	<body>
 		<!-- header -->
-		<?php include(dirname(__FILE__,2).'/headerTemplate.php') ?>
+		<?php include(dirname(__FILE__,2).'/home/headerTemplate.php') ?>
 		<main>
 			<h1>Inscription</h1>
 			
@@ -28,7 +28,7 @@ include(dirname(__FILE__).'/setCreateUserAccountVariables.php');
 			</div>
 		</main>
 		<!-- footer -->
-		<?php include(dirname(__FILE__,2).'/footerTemplate.php'); ?>
+		<?php include(dirname(__FILE__,2).'/home/footerTemplate.php'); ?>
 		
 		<?php $_SESSION['msg'] = NULL; ?>
 	</body>

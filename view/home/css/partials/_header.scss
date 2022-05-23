@@ -1,0 +1,36 @@
+header {
+	display: flex;
+	padding: 1em 0px 0.2em 0px;
+	background-color: rgb(156,139,227);
+	border-bottom: thick solid rgb(256,256,56);
+	align-items: center;
+
+
+	#header_title
+	{
+		margin-right: 1em;
+		padding-left: 1em;
+		font-family: "cmu_serifbolditalic", sans-serif;
+		font-size: 36px;
+	}
+
+	li {
+		font-size: 23px;
+	
+        a {
+			color: black;
+		}
+
+		a:visited {
+			color: black;
+		}
+
+		#home {
+			color: red;
+		}
+
+		#home:visited {
+			color: red;
+		}
+    }
+}
