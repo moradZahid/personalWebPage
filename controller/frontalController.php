@@ -7,11 +7,11 @@ if (!filter_has_var(INPUT_GET,"from"))
 	$_SESSION['service']=NULL;
 	if (isset($_SESSION['lang']) && $_SESSION['lang']=='english')
 	{
-		include(dirname(__FILE__,2).'/view/homeEnglishTemplate.php');
+		include(dirname(__FILE__,2).'/view/home/homeEnglishTemplate.php');
 	}
 	else
 	{
-		include(dirname(__FILE__,2).'/view/homeFrenchTemplate.php');
+		include(dirname(__FILE__,2).'/view/home/homeFrenchTemplate.php');
 	}
 }
 else
@@ -33,30 +33,7 @@ else
 		include(dirname(__FILE__).'/cv/cv.php');
 		break;
 
-
-	case 'functionalView':
-
-		$_SESSION['service']=NULL;
-		$_SESSION['msg']=NULL;
-		include(dirname(__FILE__).'/functionalView/functionalView.php');
-		break;
-
-
-	case 'staticView':
-
-		$_SESSION['service']=NULL;
-		$_SESSION['msg']=NULL;
-		include(dirname(__FILE__).'/staticView/staticView.php');
-		break;
-
-	case 'dynamicView':
-
-		$_SESSION['service']=NULL;
-		$_SESSION['msg']=NULL;
-		include(dirname(__FILE__).'/dynamicView/dynamicView.php');
-		break;
-
-
+	
 	case 'change lang':
 
 		$_SESSION['service']=NULL;
