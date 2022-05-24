@@ -4,8 +4,8 @@ $url = $_SESSION['index'];
 
 if (!filter_has_var(INPUT_GET,"from"))
 {
-	$_SESSION['service']=NULL;
-	if (isset($_SESSION['lang']) && $_SESSION['lang']=='english')
+	$_SESSION['service'] = NULL;
+	if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'english')
 	{
 		include(dirname(__FILE__,2).'/view/home/homeEnglishTemplate.php');
 	}
@@ -16,7 +16,7 @@ if (!filter_has_var(INPUT_GET,"from"))
 }
 else
 {
-	$call=filter_input(INPUT_GET,'from',FILTER_SANITIZE_SPECIAL_CHARS);
+	$call = filter_input(INPUT_GET,'from',FILTER_SANITIZE_SPECIAL_CHARS);
 	switch ($call)
 	{
 	case 'translation query':
@@ -34,10 +34,9 @@ else
 		break;
 
 	
-	case 'change lang':
+	case 'changeLang':
 
-		$_SESSION['service']=NULL;
-		$_SESSION['msg']=NULL;
+		$_SESSION['msg'] = NULL;
 		include(dirname(__FILE__).'/changeLang/changeLangController.php');
 		break;
 
@@ -87,5 +86,17 @@ else
 		$_SESSION['service'] = 'createUserAccount';
 		header('Location:'.$url.'/controller/userAccountHandler/userAccountController.php');
 		break;
+
+
+	default: 
+		$_SESSION['service'] = NULL;
+		if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'english')
+		{
+			include(dirname(__FILE__,2).'/view/home/homeEnglishTemplate.php');
+		}
+		else
+		{
+			include(dirname(__FILE__,2).'/view/home/homeFrenchTemplate.php');
+		}
 	}
 }

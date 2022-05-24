@@ -1,5 +1,5 @@
 <?php 
-// set $url, $fonts, $msg,
+// set $url, $fonts, $img, $msg, $login, $password1, $password2, $email
 include(dirname(__FILE__).'/setCreateUserAccountVariables.php');
 ?>
 
@@ -20,7 +20,8 @@ include(dirname(__FILE__).'/setCreateUserAccountVariables.php');
                     <!-- form -->
                     <?php include(dirname(__FILE__).'/createUserAccountForm-Template.php') ?>
                     <div id="captcha">
-                        <img alt="Image de la captcha" id="imgCaptcha">
+                        <img alt="Image de la captcha" id="imgCaptcha" 
+                             class="<?= $img ?>" >
                         <button>Renouveler</boutton>
                     </div>
                     <p class="error"><?= $msg ?></p>

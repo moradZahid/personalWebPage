@@ -14,6 +14,8 @@ function check_service($strg)
 		return 1;
 	case 'add entries service':
 		return 1;
+	case 'createUserAccount':
+		return 1;
 	default:
 		return 0;
 	}
