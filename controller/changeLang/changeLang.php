@@ -1,10 +1,11 @@
 <?php
-include_once(dirname(__FILE__,2).'/controller/authorisationSystem/authorisationSystemFunctions.php');
+include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFunctions.php');
 
 
 /******************************** Check for errors **************************************/
 
 include(dirname(__FILE__).'/changeLangCheckForErrors.php');
+
 
 /******************************* Change de language of the session *********************/
 

@@ -11,7 +11,7 @@ include(dirname(__FILE__).'/setHomeVariables.php');
 
 	<body>
 		<!-- header -->
-		<?php include(dirname(__FILE__).'/headerTemplate.php') ?>
+		<?php include(dirname(__FILE__).'/headerFrenchTemplate.php') ?>
 		<main>
 			<?php include(dirname(__FILE__,2).'/changeLang/changeLangFrenchTemplate.php') ?>
 			<h1>Dictionnaire français-anglais de termes mathématiques</h1>

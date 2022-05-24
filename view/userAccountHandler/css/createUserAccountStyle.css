@@ -108,12 +108,20 @@ footer a:visited {
   color: white;
 }
 
+#change_lang {
+  padding: 0.2em 2em 0.2em 2em;
+  text-align: right;
+  background-color: rgb(35, 15, 178);
+  color: white;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
 #main-container {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   justify-items: center;
   align-items: center;
-  padding-top: 2em;
   border-collapse: collapse;
 }
 #main-container #secondary-container {

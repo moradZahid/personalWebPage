@@ -5,7 +5,7 @@
 			<li><a href="<?=$url.'/controller/frontalController.php'?>" 
 		   		id='home'>Accueil</a></li>
 			<li><a href="<?=$url.'/controller/frontalController.php?from=tuto'?>"
-		   		id='tuto'>Tuto</a></li> 
+		   		id='tuto'>Tutoriel</a></li> 
 			<li><a href="<?=$url.'/controller/frontalController.php?from=cv'?>"
 				id='cv'>CV</a></li>
 		</ul>	

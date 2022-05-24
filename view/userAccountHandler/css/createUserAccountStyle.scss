@@ -2,13 +2,13 @@
 @use '../../home/css/partials/header';
 @use '../../home/css/partials/mainGlobal';
 @use '../../home/css/partials/footer';
+@use '../../home/css/partials/changeLang';
 
 #main-container {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     justify-items: center;
     align-items: center;
-    padding-top: 2em;
     border-collapse: collapse;
 
 

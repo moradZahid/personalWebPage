@@ -2,16 +2,7 @@
 @use 'partials/header';
 @use 'partials/mainGlobal';
 @use 'partials/footer';
-
-#change_lang
-{
-	padding: 0.2em 2em 0.2em 2em;
-	text-align: right;   
-	background-color: rgb(35,15,178);
-	color: white;
-	font-family: sans-serif;
-	font-size: 16px;
-}
+@use 'partials/changeLang';
 
 #main-container {
 	display: grid;

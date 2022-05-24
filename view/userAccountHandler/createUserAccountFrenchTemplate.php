@@ -11,14 +11,15 @@ include(dirname(__FILE__).'/setCreateUserAccountVariables.php');
 
 	<body>
 		<!-- header -->
-		<?php include(dirname(__FILE__,2).'/home/headerTemplate.php') ?>
+		<?php include(dirname(__FILE__,2).'/home/headerFrenchTemplate.php') ?>
 		<main>
+			<?php include(dirname(__FILE__,2).'/changeLang/changeLangFrenchTemplate.php') ?>
 			<h1>Inscription</h1>
 			
 			<div id="main-container">
                 <div id="secondary-container">
                     <!-- form -->
-                    <?php include(dirname(__FILE__).'/createUserAccountForm-Template.php') ?>
+                    <?php include(dirname(__FILE__).'/createUserAccountFormFrench-Template.php') ?>
                     <div id="captcha">
                         <img alt="Image de la captcha" id="imgCaptcha" 
                              class="<?= $img ?>" >
