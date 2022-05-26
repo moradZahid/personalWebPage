@@ -84,7 +84,7 @@ else
 
 	case 'createUserAccount':
 		$_SESSION['service'] = 'createUserAccount';
-		header('Location:'.$url.'/controller/userAccountHandler/userAccountController.php');
+		header('Location:'.$url.'/controller/userAccountHandler/userAccountHandlerController.php');
 		break;
 
 

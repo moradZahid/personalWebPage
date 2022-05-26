@@ -1,13 +1,14 @@
 <?php
 session_start();
+include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFunctions.php');
+include_once(dirname(__FILE__,2).'/exceptions/ServiceIsNotSet.class.php');
 include_once(dirname(__FILE__,2).'/exceptions/IsNotSet.class.php');
-include_once(dirname(__FILE__,2).'/exceptions/UnexpectedValue.class.php');
 
 try
 {
 	include(dirname(__FILE__).'/changeLang.php');
 }
-catch(UnexpectedValue $e)
+catch(ServiceIsNotSet $e)
 {
 	if ($_SESSION['lang'] == 'english')
 	{

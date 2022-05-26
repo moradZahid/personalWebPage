@@ -1,6 +1,4 @@
 <?php
-include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFunctions.php');
-
 
 /******************************** Check for errors **************************************/
 

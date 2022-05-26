@@ -2,7 +2,7 @@
 
 if (isset($_SESSION['service'])) {
     if (!check_service($_SESSION['service'])) {
-        throw new UnexpectedValue();
+        throw new ServiceIsNotSet();
     }
 }
 $service = $_SESSION['service'];

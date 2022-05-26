@@ -1,6 +1,7 @@
 <?php 
 // set $url, $fonts, $img, $msg, $login, $password1, $password2, $email
 include(dirname(__FILE__).'/setCreateUserAccountVariables.php');
+include(dirname(__FILE__).'/viewUserAccountHandlerFunctions.php');
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +9,6 @@ include(dirname(__FILE__).'/setCreateUserAccountVariables.php');
 	<!-- head -->
 		<?php include(dirname(__FILE__).'/createUserAccountHead.php'); ?>
 	
-
 	<body>
 		<!-- header -->
 		<?php include(dirname(__FILE__,2).'/home/headerEnglishTemplate.php') ?>
@@ -21,9 +21,8 @@ include(dirname(__FILE__).'/setCreateUserAccountVariables.php');
                     <!-- form -->
                     <?php include(dirname(__FILE__).'/createUserAccountFormEnglish-Template.php') ?>
                     <div id="captcha">
-                        <img alt="Image of captcha" id="imgCaptcha" 
-                             class="<?= $img ?>" >
-                        <button>New</boutton>
+                        <?php imageCaptchaGallery() ?>
+                        <button>Renouveler</boutton>
                     </div>
                     <p class="error"><?= $msg ?></p>
                 <div>

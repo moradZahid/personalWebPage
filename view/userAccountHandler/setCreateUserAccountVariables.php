@@ -47,3 +47,12 @@ else
 {
 	$email = NULL;
 }
+
+if (isset($_SESSION['create_account_code']))
+{
+	$code = filter_var($_SESSION['create_account_code'],FILTER_SANITIZE_SPECIAL_CHARS);
+}
+else 
+{
+	$code = NULL;
+}

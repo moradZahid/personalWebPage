@@ -4,12 +4,33 @@
 @use '../../home/css/partials/footer';
 @use '../../home/css/partials/changeLang';
 
+$NUMBER_IMAGES: 10;
+
+@mixin captcha-format() {
+    @for $i from 1 through $NUMBER_IMAGES {
+        #captcha#{$i} {
+                img {
+                    width: 205px;
+                    height: 50px;
+                    object-fit: fill;
+                }
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
 #main-container {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     justify-items: center;
     align-items: center;
-    border-collapse: collapse;
 
 
     #secondary-container {
@@ -97,8 +118,11 @@
         #captcha {
             grid-row: 2/3;
             padding-left: 1em;
-        }
+            align-self: center;
 
+            @include captcha-format();
+        }
+            
         .error
         {
             grid-row: 3/4;
