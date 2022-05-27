@@ -20,6 +20,15 @@ else
 	$msg = NULL;
 }
 
+if ($_SESSION['success'] !== NULL)
+{
+	$success = filter_var($_SESSION['success'],FILTER_SANITIZE_SPECIAL_CHARS);
+}
+else 
+{
+	$success = NULL;
+}
+
 if ($_SESSION['result'] !== NULL)
 {
 	$result = filter_var($_SESSION['result'],FILTER_SANITIZE_SPECIAL_CHARS);

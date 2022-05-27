@@ -95,13 +95,17 @@
 		}
     }
 	
-	.error
-	{
+	.error {
 		grid-area: area2;
 		justify-self: start;
 		color: red;
 	}
 
+	.success {
+		grid-area: area2;
+		justify-self: start;
+		color: green;
+	}
 			
 	#contribution {
 		grid-area: area3;
@@ -111,7 +115,7 @@
 
 	#author {
 		grid-area: area4;
-		width:50%;
+		width:75%;
 		border: medium solid red;
 		background-color: rgb(255,156,90);
 		text-align: justify;

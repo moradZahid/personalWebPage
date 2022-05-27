@@ -1,5 +1,5 @@
 <?php 
-// set $url, $fonts, $msg, $result and $last_result
+// set $url, $fonts, $msg, $success, $result and $last_result
 include(dirname(__FILE__).'/setHomeVariables.php');
 ?>
 
@@ -20,6 +20,7 @@ include(dirname(__FILE__).'/setHomeVariables.php');
 					<!-- form -->
 					<?php include(dirname(__FILE__).'/homeEnglishForm-Template.php') ?>
 					<p class="error"><?= $msg ?></p>
+					<p class="success"><?= $success ?></p>
 
 					<!-- article -->
 					<?php include(dirname(__FILE__).'/contributionEnglishTemplate.php') ?>
@@ -30,6 +31,7 @@ include(dirname(__FILE__).'/setHomeVariables.php');
 		<!-- footer -->
 		<?php include(dirname(__FILE__).'/footerTemplate.php'); ?>
 
-		<?= $_SESSION['msg'] = NULL; ?>
+		<?php $_SESSION['msg'] = NULL; 
+			  $_SESSION['success'] = NULL; ?>
 	</body>
 </html>

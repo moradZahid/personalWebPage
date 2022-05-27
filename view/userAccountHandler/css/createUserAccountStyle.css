@@ -55,31 +55,53 @@ select {
 
 header {
   display: flex;
-  padding: 1em 0px 0.2em 0px;
+  justify-content: space-between;
+  padding-top: 1em;
   background-color: rgb(156, 139, 227);
   border-bottom: thick solid rgb(255, 255, 56);
   align-items: center;
 }
-header #header_title {
+header #header-block-1 {
+  display: flex;
+  align-items: center;
+}
+header #header-block-1 #header_title {
   margin-right: 1em;
   padding-left: 1em;
   font-family: "cmu_serifbolditalic", sans-serif;
   font-size: 36px;
 }
-header li {
+header #header-block-1 li {
   font-size: 23px;
 }
-header li a {
+header #header-block-1 li a {
   color: black;
 }
-header li a:visited {
+header #header-block-1 li a:visited {
   color: black;
 }
-header li #home {
+header #header-block-1 li #home {
   color: red;
 }
-header li #home:visited {
+header #header-block-1 li #home:visited {
   color: red;
+}
+header #header-block-2 {
+  display: flex;
+  align-items: flex-end;
+}
+header #header-block-2 div {
+  margin: 0em 0.5em;
+  padding: 0.1em 0.5em;
+  background-color: steelblue;
+  color: white;
+  border: 1px solid black;
+}
+header #header-block-2 div a {
+  color: white;
+}
+header #header-block-2 div a:visited {
+  color: white;
 }
 
 main {

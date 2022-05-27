@@ -50,7 +50,6 @@ if (!filter_has_var(INPUT_POST,'email'))
 	throw new IsNotSet();
 }
 $email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_SPECIAL_CHARS);
-
 if (strlen($email) == 0)
 {
 	throw new EmptyString();

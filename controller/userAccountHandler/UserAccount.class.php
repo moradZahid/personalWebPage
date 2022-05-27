@@ -10,4 +10,25 @@ class UserAccount {
         $this->password = $password;
         $this->email = $email;
     }
+
+    /**
+     * getLogin :   Return the login attribute 
+     */
+    public function getLogin() {
+        return $this->login;
+    }
+    
+    /**
+     * getPassword :   Return the password attribute 
+     */
+    public function getPassword() {
+        return $this->password;
+    }
+
+    /**
+     * getEmail :   Return the email attribute 
+     */
+    public function getEmail() {
+        return $this->email;
+    }
 }
