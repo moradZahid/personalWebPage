@@ -16,13 +16,13 @@ include(dirname(__FILE__).'/viewUserAccountHandlerFunctions.php');
 			<?php include(dirname(__FILE__,2).'/changeLang/changeLangEnglishTemplate.php') ?>
 			<h1>Sign up</h1>
 			
-			<div id="main-container">
-                <div id="secondary-container">
+			<div class="main-container">
+                <div class="secondary-container-CUA">
                     <!-- form -->
                     <?php include(dirname(__FILE__).'/createUserAccountFormEnglish-Template.php') ?>
                     <div id="captcha">
                         <?php imageCaptchaGallery() ?>
-                        <button>Renouveler</boutton>
+                        <button>New</boutton>
                     </div>
                     <p class="error"><?= $msg ?></p>
                 <div>

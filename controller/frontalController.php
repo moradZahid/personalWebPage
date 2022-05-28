@@ -87,6 +87,11 @@ else
 		header('Location:'.$url.'/controller/userAccountHandler/userAccountHandlerController.php');
 		break;
 
+	case 'authentication':
+		$_SESSION['service'] = 'authentication';
+		header('Location:'.$url.'/controller/authorisationSystem/authorisationSystemController.new.php');
+		break;
+		
 
 	default: 
 		$_SESSION['service'] = NULL;

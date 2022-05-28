@@ -1,6 +1,6 @@
 <form method="post"
 	  action="<?= $url.'/controller/userAccountHandler/createUserAccountController.php'?>"
-	  id="userAccount-form">
+	  class="userAccount-form-CUA">
 
 	<label for="login">Login :</label>
 	<input type="text" name="login" id="login"
@@ -24,5 +24,5 @@
 		   
     <input type="hidden" name="captcha_nbr" id="captcha_nbr">
 
-    <input type="submit" value="submit" id="submit">
+    <input type="submit" value="Submit" id="submit">
 </form>

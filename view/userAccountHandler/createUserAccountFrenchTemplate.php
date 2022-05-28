@@ -16,8 +16,8 @@ include(dirname(__FILE__).'/viewUserAccountHandlerFunctions.php');
 			<?php include(dirname(__FILE__,2).'/changeLang/changeLangFrenchTemplate.php') ?>
 			<h1>Inscription</h1>
 			
-			<div id="main-container">
-                <div id="secondary-container">
+			<div class="main-container">
+                <div class="secondary-container-CUA">
                     <!-- form -->
                     <?php include(dirname(__FILE__).'/createUserAccountFormFrench-Template.php') ?>
                     <div id="captcha">

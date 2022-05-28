@@ -52,3 +52,20 @@ input {
 select {
 	margin: 0.5em 0.5em;
 }
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.error {
+	color: red;
+}
+
+.success {
+	color: green;
+}
+	

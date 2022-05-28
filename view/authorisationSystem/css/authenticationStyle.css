@@ -161,7 +161,7 @@ footer a:visited {
   align-items: center;
 }
 
-.secondary-container, .secondary-container-CUA {
+.secondary-container, .secondary-container-authent {
   grid-column: 2/3;
   border: 1px solid black;
   background-color: white;
@@ -170,130 +170,48 @@ footer a:visited {
   align-items: center;
 }
 
-.userAccount-form, .secondary-container-CUA .userAccount-form-CUA {
+.secondary-container-authent {
+  grid-template-rows: auto 1em;
+}
+.secondary-container-authent .authentication-form {
   align-self: center;
   grid-row: 1/2;
-  min-width: 856px;
+  min-width: 656px;
   padding: 1em 0px;
   display: grid;
   grid-template-columns: 33% 33% 33%;
+  grid-template-rows: auto auto;
   justify-items: center;
   align-items: center;
 }
-.userAccount-form [for=login], .secondary-container-CUA .userAccount-form-CUA [for=login] {
+.secondary-container-authent .authentication-form input {
+  margin-left: 1.5em;
+}
+.secondary-container-authent .authentication-form [for=login] {
   grid-column: 1/2;
   grid-row: 1/2;
   justify-self: end;
 }
-.userAccount-form [for=password1], .secondary-container-CUA .userAccount-form-CUA [for=password1] {
+.secondary-container-authent .authentication-form [for=password] {
   grid-column: 1/2;
   grid-row: 2/3;
   justify-self: end;
 }
-.userAccount-form [for=password2], .secondary-container-CUA .userAccount-form-CUA [for=password2] {
-  grid-column: 1/2;
-  grid-row: 3/4;
-  justify-self: end;
-}
-.userAccount-form [for=email], .secondary-container-CUA .userAccount-form-CUA [for=email] {
-  grid-column: 1/2;
-  grid-row: 4/5;
-  justify-self: end;
-}
-.userAccount-form #login, .secondary-container-CUA .userAccount-form-CUA #login {
+.secondary-container-authent .authentication-form #login {
   grid-column: 2/3;
   grid-row: 1/2;
 }
-.userAccount-form #password1, .secondary-container-CUA .userAccount-form-CUA #password1 {
+.secondary-container-authent .authentication-form #password {
   grid-column: 2/3;
   grid-row: 2/3;
 }
-.userAccount-form #password2, .secondary-container-CUA .userAccount-form-CUA #password2 {
-  grid-column: 2/3;
-  grid-row: 3/4;
-}
-.userAccount-form #email, .secondary-container-CUA .userAccount-form-CUA #email {
-  grid-column: 2/3;
-  grid-row: 4/5;
-}
-
-.secondary-container-CUA {
-  grid-template-rows: auto auto 1em;
-}
-.secondary-container-CUA .userAccount-form-CUA {
-  grid-template-rows: auto auto auto auto auto;
-}
-.secondary-container-CUA .userAccount-form-CUA [for=code] {
-  grid-column: 1/2;
-  grid-row: 5/6;
-  justify-self: end;
-}
-.secondary-container-CUA .userAccount-form-CUA #code {
-  grid-column: 2/3;
-  grid-row: 5/6;
-}
-.secondary-container-CUA .userAccount-form-CUA #submit {
+.secondary-container-authent .authentication-form #submit {
   grid-column: 3/4;
-  grid-row: 5/6;
+  grid-row: 2/3;
   justify-self: start;
 }
-.secondary-container-CUA #captcha {
+.secondary-container-authent .error {
   grid-row: 2/3;
-  padding-left: 1em;
-  align-self: center;
-}
-.secondary-container-CUA #captcha #captcha1 img {
-  width: 205px;
-  height: 50px;
-  object-fit: fill;
-}
-.secondary-container-CUA #captcha #captcha2 img {
-  width: 205px;
-  height: 50px;
-  object-fit: fill;
-}
-.secondary-container-CUA #captcha #captcha3 img {
-  width: 205px;
-  height: 50px;
-  object-fit: fill;
-}
-.secondary-container-CUA #captcha #captcha4 img {
-  width: 205px;
-  height: 50px;
-  object-fit: fill;
-}
-.secondary-container-CUA #captcha #captcha5 img {
-  width: 205px;
-  height: 50px;
-  object-fit: fill;
-}
-.secondary-container-CUA #captcha #captcha6 img {
-  width: 205px;
-  height: 50px;
-  object-fit: fill;
-}
-.secondary-container-CUA #captcha #captcha7 img {
-  width: 205px;
-  height: 50px;
-  object-fit: fill;
-}
-.secondary-container-CUA #captcha #captcha8 img {
-  width: 205px;
-  height: 50px;
-  object-fit: fill;
-}
-.secondary-container-CUA #captcha #captcha9 img {
-  width: 205px;
-  height: 50px;
-  object-fit: fill;
-}
-.secondary-container-CUA #captcha #captcha10 img {
-  width: 205px;
-  height: 50px;
-  object-fit: fill;
-}
-.secondary-container-CUA .error {
-  grid-row: 3/4;
 }
 
-/*# sourceMappingURL=createUserAccountStyle.css.map */
+/*# sourceMappingURL=authenticationStyle.css.map */

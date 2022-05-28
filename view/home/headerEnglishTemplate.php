@@ -17,6 +17,9 @@
 			<a href= "<?=$url.'/controller/frontalController.php?from=createUserAccount'?>">
 			Sign Up</a>
 		</div> 
-		<div>Sign In</div>
+		<div>
+		<a href="<?=$url.'/controller/frontalController.php?from=authentication'?>">
+			Sign In</a>
+		</div>
 	</div>
 </header>

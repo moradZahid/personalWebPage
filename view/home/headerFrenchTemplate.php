@@ -14,9 +14,12 @@
 	</div>
 	<div id="header-block-2">
 		<div>
-			<a href= "<?=$url.'/controller/frontalController.php?from=createUserAccount'?>">
+			<a href="<?=$url.'/controller/frontalController.php?from=createUserAccount'?>">
 			Inscription</a>
 		</div> 
-		<div>Connection</div>
+		<div>
+		<a href="<?=$url.'/controller/frontalController.php?from=authentication'?>">
+			Connection</a>
+		</div>
 	</div>
 </header>
