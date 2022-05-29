@@ -1,5 +1,7 @@
 <?php 
-// set $url, $fonts, $msg, $success, $result and $last_result
+include(dirname(__FILE__).'/viewHomeFunctions.php');
+
+// set $url, $fonts, $msg, $success, $result, $last_result and $login
 include(dirname(__FILE__).'/setHomeVariables.php');
 ?>
 
@@ -11,7 +13,7 @@ include(dirname(__FILE__).'/setHomeVariables.php');
 	
 	<body>
 		<!-- header -->
-		<?php include(dirname(__FILE__).'/headerEnglishTemplate.php') ?>
+		<?php include(dirname(__FILE__).choose_header()) ?>
 		<main>
 			<?php include(dirname(__FILE__,2).'/changeLang/changeLangEnglishTemplate.php') ?>
 			<h1>English-French Dictionary of Mathematical Terms</h1>
@@ -23,7 +25,7 @@ include(dirname(__FILE__).'/setHomeVariables.php');
 					<p class="success"><?= $success ?></p>
 
 					<!-- article -->
-					<?php include(dirname(__FILE__).'/contributionEnglishTemplate.php') ?>
+					<?php include(dirname(__FILE__).choose_contribution()) ?>
 					<!-- aside -->
 					<?php include(dirname(__FILE__).'/authorEnglishTemplate.php') ?>
 			</div>

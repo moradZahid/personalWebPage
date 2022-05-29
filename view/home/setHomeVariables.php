@@ -37,3 +37,12 @@ else
 {
 	$result = NULL;
 }
+
+if ($_SESSION['login'] !== NULL)
+{
+	$login = filter_var($_SESSION['login'],FILTER_SANITIZE_SPECIAL_CHARS);
+}
+else 
+{
+	$login = NULL;
+}

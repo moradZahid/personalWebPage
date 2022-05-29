@@ -18,4 +18,5 @@
         href="<?= $fonts.'/cmuserif_boldoblique_macroman/stylesheet.css' ?>" 
         type="text/css" 
         charset="utf-8" />
+    <script src="<?= $url.'/view/home/javascript/loggedMenu.js' ?>" defer></script>
 </head>

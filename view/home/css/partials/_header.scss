@@ -1,12 +1,14 @@
 header {
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	justify-items: end;
 	padding-top: 1em;
 	background-color: rgb(156,139,227);
 	border-bottom: thick solid rgb(256,256,56);
 	align-items: center;
 
 	#header-block-1 {
+		grid-column: 1/2;
 		display: flex;
 		align-items: center;
 
@@ -17,36 +19,65 @@ header {
 			font-size: 36px;
 		}
 
-		li {
-			font-size: 23px;
-		
-			a {
-				color: black;
-			}
+		ul {
+			display: flex;
+			
+			li {
+				font-size: 23px;
+			
+				a {
+					color: black;
+				}
 
-			a:visited {
-				color: black;
-			}
+				a:visited {
+					color: black;
+				}
 
-			#home {
-				color: red;
-			}
+				#home {
+					color: red;
+				}
 
-			#home:visited {
-				color: red;
+				#home:visited {
+					color: red;
+				}
 			}
 		}
 	}
 
+	.french-width {
+		width: 206px;
+	}
+
+	.english-width {
+		width: 223px;
+	}
+
 	#header-block-2 {
-		display: flex;
-		align-items: flex-end;
+		grid-column: 2/3;
 
 		div {
+			text-align: right;
+		}
+	
+			span {
 			margin: 0em 0.5em;
 			padding: 0.1em 0.5em;
 			background-color: steelblue;
 			border: 1px solid black;
+			color: white;
+		}
+		
+		#management-menu {
+			margin: 2px 0.5em;
+			background-color: black;
+			position: absolute;
+			z-index: 1;
+			border-width: 0px;
+			text-align: left;
+			
+			li {
+				margin: 0.6em 1em;
+			}
 
 			a {
 				color: white;

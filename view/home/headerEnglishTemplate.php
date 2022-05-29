@@ -13,13 +13,15 @@
 		</nav>
 	</div>
 	<div id="header-block-2">
-		<div>
-			<a href= "<?=$url.'/controller/frontalController.php?from=createUserAccount'?>">
-			Sign Up</a>
-		</div> 
-		<div>
+		<a href="<?=$url.'/controller/frontalController.php?from=createUserAccount'?>">
+			<div>	
+				Sign Up
+			</div>
+		</a>
 		<a href="<?=$url.'/controller/frontalController.php?from=authentication'?>">
-			Sign In</a>
-		</div>
+			<div>
+				Sign In
+			</div>
+		</a>
 	</div>
 </header>

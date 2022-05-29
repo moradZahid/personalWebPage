@@ -38,7 +38,6 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex;
 }
 
 li {
@@ -70,14 +69,16 @@ select {
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-items: end;
   padding-top: 1em;
   background-color: rgb(156, 139, 227);
   border-bottom: thick solid rgb(255, 255, 56);
   align-items: center;
 }
 header #header-block-1 {
+  grid-column: 1/2;
   display: flex;
   align-items: center;
 }
@@ -87,35 +88,56 @@ header #header-block-1 #header_title {
   font-family: "cmu_serifbolditalic", sans-serif;
   font-size: 36px;
 }
-header #header-block-1 li {
+header #header-block-1 ul {
+  display: flex;
+}
+header #header-block-1 ul li {
   font-size: 23px;
 }
-header #header-block-1 li a {
+header #header-block-1 ul li a {
   color: black;
 }
-header #header-block-1 li a:visited {
+header #header-block-1 ul li a:visited {
   color: black;
 }
-header #header-block-1 li #home {
+header #header-block-1 ul li #home {
   color: red;
 }
-header #header-block-1 li #home:visited {
+header #header-block-1 ul li #home:visited {
   color: red;
 }
 header #header-block-2 {
-  display: flex;
-  align-items: flex-end;
+  grid-column: 2/3;
+}
+header #header-block-2 .french-width {
+  width: 240px;
+}
+header #header-block-2 .english-width {
+  width: 240px;
 }
 header #header-block-2 div {
+  text-align: right;
+}
+header #header-block-2 span {
   margin: 0em 0.5em;
   padding: 0.1em 0.5em;
   background-color: steelblue;
   border: 1px solid black;
-}
-header #header-block-2 div a {
   color: white;
 }
-header #header-block-2 div a:visited {
+header #header-block-2 #management-menu {
+  margin: 2px 0.5em;
+  padding: 0.7em 0em;
+  background-color: black;
+  position: absolute;
+  z-index: 1;
+  border-width: 0px;
+  text-align: left;
+}
+header #header-block-2 #management-menu a {
+  color: white;
+}
+header #header-block-2 #management-menu a:visited {
   color: white;
 }
 
@@ -138,10 +160,13 @@ footer {
   font-size: 16px;
   font-style: italic;
 }
-footer a {
+footer ul {
+  display: flex;
+}
+footer ul a {
   color: white;
 }
-footer a:visited {
+footer ul a:visited {
   color: white;
 }
 
