@@ -1,0 +1,35 @@
+@use '../../home/css/partials/globalStyle';
+@use '../../home/css/partials/header';
+@use '../../home/css/partials/mainGlobal';
+@use '../../home/css/partials/footer';
+@use '../../home/css/partials/changeLang';
+@use '../../userAccountHandler/css/partials/containers';
+
+
+.secondary-container-ME {
+    @extend .secondary-container; 
+    grid-template-rows: 1em auto auto ;
+
+    .error {
+        grid-row: 1/2;
+    }
+
+    .success {
+        grid-row: 1/2;
+    }
+    
+    #entriesTable {
+        justify-self: center;
+        grid-row: 2/3;
+
+        td {
+            padding: 0em 1em;
+        }
+    }
+
+    form {
+        grid-row: 3/4;
+        padding-top: 1em;
+    }
+}
+    

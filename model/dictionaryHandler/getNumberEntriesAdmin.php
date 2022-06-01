@@ -12,13 +12,11 @@ for ($i=0; $i<26; $i++)
 				  WHERE French.expression LIKE "';
 	$str_query .= chr($i+97);
 	$str_query .= '%"';
-	$str_query .= 'AND Dictionary.user_id=:user_id';
 
 	// execute the query
 	try
 	{
-		$ans = $db->prepare($str_query);
-		$ans->execute(array('user_id' => $_SESSION['user_id']));
+		$ans = $db->query($str_query);
 	}
 	catch(Exception $e)
 	{

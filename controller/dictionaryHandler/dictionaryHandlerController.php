@@ -1,25 +1,28 @@
 <?php
 session_start();
-include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
+include_once(dirname(__FILE__).'/DictionaryService.class.php');
 include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFunctions.php');
+include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
 
 
-switch ($_SESSION['service'])
+if ($_SESSION['service'] == 'manageEntries')
 {
-case 'add entries service':
+    check_permission();
 
-	verify_permission('add entries service');
-
-	// call add entries service page
-	include(dirname(__FILE__,3).'/view/dictionaryHandler/addEntriesTemplate.php');
-	break;
-
-
-case 'manage entries services':
-
-	verify_permission('manage entries services');
-
-	// call administrative services page
-	include(dirname(__FILE__,3).'/view/dictionaryHandler/dictionaryHandlerIndexTemplate.php');
-	break;
+    $service = $_SESSION['service'];
+    include_once(dirname(__FILE__).'/manageEntriesController.php');
+}
+else
+{
+    if ($_SESSION['lang'] == 'english')
+    {
+        $_SESSION['msg'] = 'Error. Action not allowed.';
+    }
+    else
+    {
+        $_SESSION['msg'] = 'Erreur. Action non autorisée. ';
+    }
+    $url = $_SESSION['index'];
+    $url .= '/controller/frontalController.php';
+    header('Location:'.$url);
 }

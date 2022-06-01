@@ -8,9 +8,11 @@ include_once(dirname(__FILE__,3).'/controller/dictionaryHandler/DictionaryEntry.
  *
  *					: param	: $entry 	: DictionaryEntry object
  */
- function display_entry($entry)
- {
-	echo '<p>'.$entry->getFrench().' : '.$entry->getEnglish().' | ';
+function display_entry($entry)
+{
+	echo '<tr>';
+	echo '<td>'.$entry->getFrench().' </td> ';
+	echo '<td>'.$entry->getEnglish().' </td> ';
 
 	//link to the modification controller
 	$url = $_SESSION['index'];
@@ -18,7 +20,7 @@ include_once(dirname(__FILE__,3).'/controller/dictionaryHandler/DictionaryEntry.
 	$url .= '?french_id='.$entry->getFrenchId();
   $url .= '&english_id='.$entry->getEnglishId();
 
-	echo '<a href="'.$url.'">Modify</a> -- ';
+	echo '<td><a href="'.$url.'">Modify</a></td> ';
 
   //link to the deletion controller
 	$url = $_SESSION['index'];
@@ -26,5 +28,6 @@ include_once(dirname(__FILE__,3).'/controller/dictionaryHandler/DictionaryEntry.
 	$url .= '?french_id='.$entry->getFrenchId();
   $url .= '&english_id='.$entry->getEnglishId();
 
-	echo '<a href="'.$url.'">Delete</a></p> ';
+	echo '<td><a href="'.$url.'">Delete</a></td> ';
+	echo '</tr>';
  }

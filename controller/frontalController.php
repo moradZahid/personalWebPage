@@ -92,6 +92,10 @@ else
 		header('Location:'.$url.'/controller/authorisationSystem/authorisationSystemController.new.php');
 		break;
 		
+	case 'manageEntries':
+		$_SESSION['service'] = 'manageEntries';
+		header('Location:'.$url.'/controller/dictionaryHandler/dictionaryHandlerController.php');
+		break;
 
 	default: 
 		$_SESSION['service'] = NULL;

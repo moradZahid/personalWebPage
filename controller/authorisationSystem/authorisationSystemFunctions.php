@@ -1,4 +1,5 @@
 <?php
+include_once(dirname(__FILE__).'/authorisationSystemExceptions.php');
 include_once(dirname(__FILE__,3).'/model/authorisationSystem/modelAuthorisationSystemFunctions.php');
 
 /**
@@ -69,6 +70,36 @@ function verify_permission($service)
 	}
 }
 
+/**
+ * check_permission	: simple verification that the user has the right to use the service
+ */
+function check_permission()
+{
+	try
+	{
+		if (!isset($_SESSION['login']) || $_SESSION['login'] == 'anonymous')
+		{
+			throw new PermissionDenied();
+		}
+	}
+	catch(PermissionDenied $e)
+	{
+		if ($_SESSION['lang'] == 'english')
+		{
+			$_SESSION['msg'] = 'Permission denied: you are not allowed to use this service';
+			$url = $_SESSION['index'];
+			$url .= '/controller/frontalController.php';
+			header('Location:'.$url);
+		}
+		else
+		{
+			$_SESSION['msg'] = 'Permission refusée: vous n\'êtes pas autorisé à utiliser ce service';
+			$url = $_SESSION['index'];
+			$url .= '/controller/frontalController.php';
+			header('Location:'.$url);
+		}
+	}
+}
 
 function verify_modification_entry_permission($french_id,$english_id)
 {

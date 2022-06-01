@@ -1,9 +1,6 @@
 <?php
-include_once(dirname(__FILE__).'/DictionaryService.class.php');
 include_once(dirname(__FILE__).'/controllerDictionaryHandlerFunctions.php');
-include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFunctions.php');
-
-verify_permission('manage entries services');
+check_permission();
 
 
 global $ENTRIES_PER_PAGE;

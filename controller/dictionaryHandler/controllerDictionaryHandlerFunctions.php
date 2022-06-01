@@ -4,20 +4,26 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
 
 /**
  * get_number_entries	: return for each letters the number of entries in the dictionary
- *                      whose the french expression begins with this letter
+ *                        whose the french expression begins with this letter
  *
- *						        : return : array of integer
+ *						: return : array of integer
  */
- function get_number_entries()
- {
- 	  // receive the number of entries for each letters
- 	  $nbr_entries = [];
+function get_number_entries()
+{
+ 	// will receive the number of entries for each letters
+ 	$nbr_entries = [];
 
- 	  //call the model to fill $nbr_entries
- 	  include(dirname(__FILE__,3).'/model/dictionaryHandler/getNumberEntries.php');
-
+ 	//call the model to fill $nbr_entries
+	if ($_SESSION['login'] == 'admin')
+	{
+		include(dirname(__FILE__,3).'/model/dictionaryHandler/getNumberEntriesAdmin.php');
+	}
+	else
+	{
+ 		include(dirname(__FILE__,3).'/model/dictionaryHandler/getNumberEntries.php');
+	}
     return $nbr_entries;
- }
+}
 
 
 /**
@@ -48,6 +54,11 @@ function get_offset($page_nbr)
 	global $ENTRIES_PER_PAGE;
 
 	$index = ord($letter) - 97;
+
+	if ($nbr_entries[$index] == 0)
+	{
+		return 0;
+	}
 
 	$remainder = $nbr_entries[$index] % $ENTRIES_PER_PAGE;
 	$last_page = ceil($nbr_entries[$index] / $ENTRIES_PER_PAGE);

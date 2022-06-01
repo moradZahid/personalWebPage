@@ -25,24 +25,6 @@ class DictionaryService
 		return $entries_list;
 	}
 
-
-	/**
-	 * displayEntriesList	: display all the entries of the dictionary table
-	 *						  begining by $letter at the page $page_nbr
-	 *
-	 *					 	: param : $letter	: character
-	 *							    : $page_nbr	: integer
-	 */
-	public function displayEntriesList($letter,$page_nbr)
-	{
-		$offset = get_offset($page_nbr);
-		$nbr = get_nbr_entries_to_display($letter,$page_nbr);
-		$data = [];
-		include_once(dirname(__FILE__,3).'/model/dictionaryHandler/getSomeEntries.php');
-		$entries_list = $this->getEntriesList($data);
-		include_once(dirname(__FILE__,3).'/view/dictionaryHandler/displayEntriesTemplate.php');
-	}
-
 	/**
 	 * displayAvailableLetters	: display all the letters which are initials of a french expression
 	 *							: according to the array $nbr_entries
@@ -58,7 +40,7 @@ class DictionaryService
 			if ($nbr > 0)
 			{
 				$url = $_SESSION['index'];
-				 $url .= '/controller/dictionaryHandler/manageEntriesController.php';
+				 $url .= '/controller/dictionaryHandler/dictionaryHandlerController.php';
 				 $url .= '?letter='.chr($i+97).'&page=1';
 
 				 echo '<a href="'.$url.'">';
@@ -88,7 +70,7 @@ class DictionaryService
 		 for ($i=0 ; $i < $total_pages ; $i++)
 		 {
 		 	 $url = $_SESSION['index'];
-			 $url .= '/controller/dictionaryHandler/manageEntriesController.php';
+			 $url .= '/controller/dictionaryHandler/dictionaryHandlerController.php';
 			 $url .= '?letter='.$letter.'&page='.($i+1);
 			 echo '<a href="'.$url.'">';
 			 echo ' '.($i+1).' ';
@@ -96,4 +78,42 @@ class DictionaryService
 		 }
 		 echo '</p>';
 	 }
+
+	 /**
+	 * displayEntriesList	: display all the entries of the dictionary table
+	 *						  begining by $letter at the page $page_nbr
+	 *
+	 *					 	: param : $letter	: character
+	 *							    : $page_nbr	: integer
+	 */
+	public function displayEntriesList($letter,$page_nbr)
+	{
+		$offset = get_offset($page_nbr);
+		$nbr = get_nbr_entries_to_display($letter,$page_nbr);
+		if ($nbr > 0)
+		{
+			$data = [];
+			if ($_SESSION['login'] == 'admin')
+			{
+				include_once(dirname(__FILE__,3).'/model/dictionaryHandler/getSomeEntriesAdmin.php');	
+			}
+			else
+			{
+				include_once(dirname(__FILE__,3).'/model/dictionaryHandler/getSomeEntries.php');
+			}
+			$entries_list = $this->getEntriesList($data);
+		}
+		else
+		{
+			$entries_list = [];	
+		}
+		if ($_SESSION['lang'] == 'english')
+		{
+			include(dirname(__FILE__,3).'/view/dictionaryHandler/manageEntriesEnglishTemplate.php');
+		} 
+		else 
+		{
+			include(dirname(__FILE__,3).'/view/dictionaryHandler/manageEntriesFrenchTemplate.php');
+		}
+	}
 }
