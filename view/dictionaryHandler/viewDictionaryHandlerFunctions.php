@@ -28,6 +28,6 @@ function display_entry($entry)
 	$url .= '?french_id='.$entry->getFrenchId();
   $url .= '&english_id='.$entry->getEnglishId();
 
-	echo '<td><a href="'.$url.'">Delete</a></td> ';
+	echo '<td><a href="'.$url.'" class="delete">Delete</a></td> ';
 	echo '</tr>';
  }

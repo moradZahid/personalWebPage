@@ -197,25 +197,59 @@ footer ul a:visited {
   align-items: center;
 }
 
+.delete {
+  color: darkred;
+}
+
 .secondary-container-ME {
   grid-template-rows: 1em auto auto;
 }
-.secondary-container-ME .error {
+.secondary-container-ME #message {
   grid-row: 1/2;
-}
-.secondary-container-ME .success {
-  grid-row: 1/2;
+  margin-top: 1em;
 }
 .secondary-container-ME #entriesTable {
   justify-self: center;
   grid-row: 2/3;
+  margin-top: 1em;
 }
 .secondary-container-ME #entriesTable td {
   padding: 0em 1em;
 }
+.secondary-container-ME #entriesTable #available-pages {
+  display: flex;
+}
+.secondary-container-ME #entriesTable #available-pages .paging {
+  width: 2em;
+  border: 1px solid lightgray;
+  background: linear-gradient(white, lightgray);
+  color: darkblue !important;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0.1em;
+}
+.secondary-container-ME #entriesTable #available-letters {
+  margin-top: 1em;
+  display: flex;
+}
+.secondary-container-ME #entriesTable #available-letters .paging {
+  width: 2em;
+  border: 1px solid lightgray;
+  background: linear-gradient(white, lightgray);
+  color: darkblue !important;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0.1em;
+}
 .secondary-container-ME form {
   grid-row: 3/4;
   padding-top: 1em;
+}
+.secondary-container-ME form [for=english] {
+  margin-left: 1em;
+}
+.secondary-container-ME form #file_name {
+  font-size: smaller;
 }
 
 /*# sourceMappingURL=manageEntriesStyle.css.map */

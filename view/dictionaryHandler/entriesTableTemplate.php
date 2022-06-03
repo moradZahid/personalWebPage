@@ -6,7 +6,5 @@
 		}
     ?>
 </table>    
-<?php	
-    $this->displayAvailableLetters();
-    $this->displayAvailablePages($letter);
-?>
+<div id="available-letters"><?php	$this->displayAvailableLetters(); ?></div>
+<div id="available-pages"><?php $this->displayAvailablePages($letter); ?></div>

@@ -19,6 +19,8 @@ function check_service($strg)
 		return 1;
 	case 'authentication':
 		return 1;
+	case 'manageEntries':
+		return 1;
 	default:
 		return 0;
 	}
@@ -123,4 +125,9 @@ function verify_modification_entry_permission($french_id,$english_id)
 		header('Location:'.$url);
 	}
 	return true;
+}
+
+function saveFormInput($login,$password) {
+    $_SESSION['authentication_login'] = $login;
+    $_SESSION['authentication_password'] = $password;
 }

@@ -14,14 +14,14 @@
 	</div>
 	<div id="header-block-2">
 		<a href="<?=$url.'/controller/frontalController.php?from=createUserAccount'?>">
-			<div>	
+			<span>	
 				Sign Up
-			</div>
+			</span>
 		</a>
 		<a href="<?=$url.'/controller/frontalController.php?from=authentication'?>">
-			<div>
+			<span>
 				Sign In
-			</div>
+			</span>
 		</a>
 	</div>
 </header>

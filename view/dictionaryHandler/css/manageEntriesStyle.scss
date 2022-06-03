@@ -5,31 +5,66 @@
 @use '../../home/css/partials/changeLang';
 @use '../../userAccountHandler/css/partials/containers';
 
+@mixin available-items() {
+    display: flex;
+
+    .paging {
+        width: 2em;
+        border: 1px solid lightgray;
+        background: linear-gradient(white,lightgray);
+        color: darkblue !important;
+        border-radius: 5px;
+        text-align: center;
+        margin: 0.1em;
+    }
+    
+}
+
+.delete {
+    color: darkred;
+}
 
 .secondary-container-ME {
     @extend .secondary-container; 
     grid-template-rows: 1em auto auto ;
 
-    .error {
+    #message {
         grid-row: 1/2;
+        margin-top: 1em;
     }
 
-    .success {
-        grid-row: 1/2;
-    }
+    
     
     #entriesTable {
         justify-self: center;
         grid-row: 2/3;
+        margin-top: 1em;
 
         td {
             padding: 0em 1em;
         }
+
+        #available-pages {
+           @include available-items();
+        }  
+
+        #available-letters {
+            margin-top: 1em;
+            @include available-items();
+         }         
     }
 
     form {
         grid-row: 3/4;
         padding-top: 1em;
+
+        [for="english"] {
+            margin-left: 1em;
+        }
+
+        #file_name {
+            font-size: smaller;
+        }
     }
 }
     

@@ -23,8 +23,8 @@
 	<p>
         <label for="french">Expression en français</label>
 		<input type="text" name="french" id="french">
-		- - -
-		<label for="english">Expression en anglais</label>
+		
+		<label for="english"> Expression en anglais</label>
 		<input type="text" name="english" id="english">
 	</p>
     <br>

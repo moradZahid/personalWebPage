@@ -33,22 +33,20 @@ class DictionaryService
 	 {
 		 global $nbr_entries;
 
-		 echo '<p>';
 		 foreach ($nbr_entries as $i => $nbr)
 		 {
 			$nbr = (int) $nbr;
 			if ($nbr > 0)
 			{
 				$url = $_SESSION['index'];
-				 $url .= '/controller/dictionaryHandler/dictionaryHandlerController.php';
-				 $url .= '?letter='.chr($i+97).'&page=1';
-
-				 echo '<a href="'.$url.'">';
-				 echo ' '.chr($i+97).' ';
-				 echo '</a>';
+				$url .= '/controller/dictionaryHandler/dictionaryHandlerController.php';
+				$url .= '?letter='.chr($i+97).'&page=1';
+				echo '<a href="'.$url.'">';
+			 	echo '<div class="paging">';
+				echo ' '.chr($i+97).' ';
+				echo '</div></a>';
 			}
 		 }
-		 echo '</p>';
 	 }
 
 
@@ -66,17 +64,16 @@ class DictionaryService
 
 		 $total_pages = ceil($nbr_entries[$index] / $ENTRIES_PER_PAGE);
 
-		 echo '<p>';
 		 for ($i=0 ; $i < $total_pages ; $i++)
 		 {
 		 	 $url = $_SESSION['index'];
 			 $url .= '/controller/dictionaryHandler/dictionaryHandlerController.php';
 			 $url .= '?letter='.$letter.'&page='.($i+1);
 			 echo '<a href="'.$url.'">';
+			 echo '<div class="paging">';
 			 echo ' '.($i+1).' ';
-			 echo '</a>';
+			 echo '</div></a>';
 		 }
-		 echo '</p>';
 	 }
 
 	 /**

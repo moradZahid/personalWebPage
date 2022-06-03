@@ -19,8 +19,10 @@ include(dirname(__FILE__).'/setManageEntriesVariables.php');
 			
 			<div class="main-container">
                 <div class="secondary-container-ME">
-                    <p class="error"><?= $msg ?></p>
-                    <p class="success"><?= $success ?></p>
+					<p id="message">
+						<span class="error"><?= $msg ?></span>
+						<span class="success"><?= $success ?></span>
+					</p>
                     <div id="entriesTable">
                     	<?php include(dirname(__FILE__).'/entriesTableTemplate.php') ?>
 					</div>
