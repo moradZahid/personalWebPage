@@ -1,31 +1,29 @@
 <?php
-include_once(dirname(__FILE__).'/authorisationSystemExceptions.php');
+session_start();
 
-
-$_SESSION['service']=$call;
-
-try
+switch ($_SESSION['service'])
 {
-	include_once(dirname(__FILE__,2).'/authorisationSystem/requestAuthorisation.php');
-}
-catch(UnexpectedValue $e)
-{
-	$url = $_SESSION['index'];
-	$url .= '/controller/frontalController.php';
-	header('Location:'.$url);
-}
-catch(PermissionDenied $e)
-{
-	$_SESSION['result'] = NULL;
-	if ($_SESSION['lang'] == 'english')
-	{
-		$_SESSION['msg'] = 'Permission denied: your not allowed to use this service';
-	}
-	else
-	{
-		$_SESSION['msg'] = 'Permission refusée: vous n\'êtes pas autorisé à utiliser ce service';
-	}
-	$url = $_SESSION['index'];
-	$url .= '/controller/frontalController.php';
-	header('Location:'.$url);
+case 'authentication':
+    if ($_SESSION['lang'] == 'english')
+    {
+        include(dirname(__FILE__,3).'/view/authorisationSystem/authenticationEnglishTemplate.php');
+    } 
+    else 
+    {
+        include(dirname(__FILE__,3).'/view/authorisationSystem/authenticationFrenchTemplate.php');
+    }
+    break;
+    
+default:
+    if ($_SESSION['lang'] == 'english')
+    {
+        $_SESSION['msg'] = 'Error. Action not allowed.';
+    }
+    else
+    {
+        $_SESSION['msg'] = 'Erreur. Action non autorisée. ';
+    }
+    $url = $_SESSION['index'];
+    $url .= '/controller/frontalController.php';
+    header('Location:'.$url);
 }

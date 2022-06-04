@@ -20,7 +20,14 @@ class EntryDelation
 			throw new UnexpectedValue('internal variable');
 		}
 		$entry = new DictionaryEntry($data['french'],$french_id,$data['english'],$english_id);
-		include(dirname(__FILE__,3).'/view/dictionaryHandler/deleteOneEntryInterfaceTemplate.php');	
+		if ($_SESSION['lang'] == 'english')
+		{
+			include(dirname(__FILE__,3).'/view/dictionaryHandler/deleteOneEntryEnglishTemplate.php');
+		} 
+		else 
+		{
+			include(dirname(__FILE__,3).'/view/dictionaryHandler/deleteOneEntryFrenchTemplate.php');
+		}
 	}
 
 
@@ -33,10 +40,17 @@ class EntryDelation
 	 public function delete($french_id,$english_id)
 	 {
 		include(dirname(__FILE__,3).'/model/dictionaryHandler/deleteOneEntry.php');
-		
-		$_SESSION['msg'] = 'Entry delated';
+
+		if ($_SESSION['lang'] == 'english')
+		{
+			$_SESSION['success']='Entry delated';
+		}
+		else
+		{
+			$_SESSION['success']='L\'entrée a été supprimée';
+		}
 		$url = $_SESSION['index'];
-		$url .= '/controller/frontalController.php?from=manage entries services';
+		$url .= '/controller/frontalController.php?from=manageEntries';
 		header('Location:'.$url);
 	 } 
 }

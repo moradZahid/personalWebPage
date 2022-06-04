@@ -199,62 +199,34 @@ footer ul a:visited {
 }
 
 .delete {
-  color: darkred;
+  color: darkred !important;
+}
+
+.cancel {
+  color: green !important;
 }
 
 .delete:visited {
   color: darkred !important;
 }
 
-.secondary-container-ME {
-  grid-template-rows: 1em auto auto;
-}
-.secondary-container-ME #message {
-  grid-row: 1/2;
-  margin-top: 1em;
-}
-.secondary-container-ME #entriesTable {
-  justify-self: center;
-  grid-row: 2/3;
-  margin-top: 1em;
-}
-.secondary-container-ME #entriesTable td {
-  padding: 0em 1em;
-}
-.secondary-container-ME #entriesTable #available-pages {
-  display: flex;
-}
-.secondary-container-ME #entriesTable #available-pages .paging {
-  width: 2em;
-  border: 1px solid lightgray;
-  background: linear-gradient(white, lightgray);
-  color: darkblue !important;
-  border-radius: 5px;
-  text-align: center;
-  margin: 0.1em;
-}
-.secondary-container-ME #entriesTable #available-letters {
-  margin-top: 1em;
-  display: flex;
-}
-.secondary-container-ME #entriesTable #available-letters .paging {
-  width: 2em;
-  border: 1px solid lightgray;
-  background: linear-gradient(white, lightgray);
-  color: darkblue !important;
-  border-radius: 5px;
-  text-align: center;
-  margin: 0.1em;
-}
-.secondary-container-ME form {
-  grid-row: 3/4;
-  padding-top: 1em;
-}
-.secondary-container-ME form [for=english] {
-  margin-left: 1em;
-}
-.secondary-container-ME form #file_name {
-  font-size: smaller;
+.cancel:visited {
+  color: green !important;
 }
 
-/*# sourceMappingURL=manageEntriesStyle.css.map */
+.secondary-container-ME {
+  padding-bottom: 0.5em;
+}
+.secondary-container-ME td {
+  padding: 1em 1em;
+}
+.secondary-container-ME .confirmation {
+  border: 1px solid lightgray;
+  background: linear-gradient(white, lightgray);
+  border-radius: 5px;
+  text-align: center;
+  margin: 0.3em;
+  padding: 0px 0.2em;
+}
+
+/*# sourceMappingURL=deleteOneEntryStyle.css.map */

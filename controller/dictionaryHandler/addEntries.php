@@ -32,14 +32,13 @@ else
 /************************************* Successful ending **********************************************/
 
 if ($_SESSION['lang'] == 'english')
-	{
-		$_SESSION['success']='Entries added';
-	}
-	else
-	{
-		$_SESSION['success']='Les entrées ont été ajoutées';
-	}
-
+{
+	$_SESSION['success']='Entries added';
+}
+else
+{
+	$_SESSION['success']='Les entrées ont été ajoutées';
+}
 $url = $_SESSION['index'];
 $url .= '/controller/frontalController.php?from='.$service;
 header('Location:'.$url);

@@ -11,6 +11,11 @@
     color: darkred;
 }
 
+.delete:visited
+{
+    color: darkred !important;
+}
+
 .secondary-container-ME {
     @extend .secondary-container; 
     grid-template-rows: 1em auto auto ;

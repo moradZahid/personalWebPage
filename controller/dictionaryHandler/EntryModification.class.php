@@ -54,8 +54,15 @@ class EntryModification
 	 public function modify($entry)
 	 {
 		include(dirname(__FILE__,3).'/model/dictionaryHandler/modifyOneEntry.php');
-
-		$_SESSION['success'] = 'Entry modified';
+		
+		if ($_SESSION['lang'] == 'english')
+		{
+			$_SESSION['success']='Entry modified';
+		}
+		else
+		{
+			$_SESSION['success']='L\'entrée a été modifiée';
+		}
 		$url = $_SESSION['index'];
 		$url .= '/controller/frontalController.php?from=manageEntries';
 		header('Location:'.$url);

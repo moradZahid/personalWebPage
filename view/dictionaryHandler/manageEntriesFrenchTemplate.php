@@ -24,7 +24,16 @@ include(dirname(__FILE__).'/setManageEntriesVariables.php');
 						<span class="success"><?= $success ?></span>
 					</p>
                     <div id="entriesTable">
-                    	<?php include(dirname(__FILE__).'/entriesTableTemplate.php') ?>
+						<table>
+							<?php
+								foreach($entries_list as $entry)
+								{
+									display_entry($entry,'Modifier','Supprimer');
+								}
+							?>
+						</table>    
+						<div id="available-letters"><?php $this->displayAvailableLetters(); ?></div>
+						<div id="available-pages"><?php $this->displayAvailablePages($letter); ?></div>
 					</div>
                     <?php include(dirname(__FILE__).'/addEntriesFormFrenchTemplate.php') ?>
                 <div>
