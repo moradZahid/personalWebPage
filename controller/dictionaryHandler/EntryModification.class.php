@@ -36,8 +36,14 @@ class EntryModification
 		$data = [];
 		include(dirname(__FILE__,3).'/model/dictionaryHandler/getOneEntry.php');
 		$entry = $this->getStoredEntry($data,$french_id,$english_id);
-
-		include(dirname(__FILE__,3).'/view/dictionaryHandler/modifyOneEntryInterfaceTemplate.php');
+		if ($_SESSION['lang'] == 'english')
+		{
+			include(dirname(__FILE__,3).'/view/dictionaryHandler/modifyOneEntryEnglishTemplate.php');
+		} 
+		else 
+		{
+			include(dirname(__FILE__,3).'/view/dictionaryHandler/modifyOneEntryFrenchTemplate.php');
+		}
 	}
 
 	/**
@@ -49,9 +55,9 @@ class EntryModification
 	 {
 		include(dirname(__FILE__,3).'/model/dictionaryHandler/modifyOneEntry.php');
 
-		$_SESSION['msg'] = 'Entry modified';
+		$_SESSION['success'] = 'Entry modified';
 		$url = $_SESSION['index'];
-		$url .= '/controller/frontalController.php?from=manage entries services';
+		$url .= '/controller/frontalController.php?from=manageEntries';
 		header('Location:'.$url);
 	 }
 }

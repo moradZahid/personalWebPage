@@ -151,3 +151,14 @@ function get_offset($page_nbr)
      }
      return $arr_pairs;
  }
+
+
+/**
+ * save_letter_page : memorize the letter and the page of the list of entries
+ * 					  for the manage entries interface.
+ */
+function save_letter_page($letter, $page_nbr)
+{
+	$_SESSION['letter'] = $letter;
+	$_SESSION['page_nbr'] = $page_nbr;
+} 

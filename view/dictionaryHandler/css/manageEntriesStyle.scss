@@ -4,21 +4,8 @@
 @use '../../home/css/partials/footer';
 @use '../../home/css/partials/changeLang';
 @use '../../userAccountHandler/css/partials/containers';
+@use 'partials/paging' as Paging;
 
-@mixin available-items() {
-    display: flex;
-
-    .paging {
-        width: 2em;
-        border: 1px solid lightgray;
-        background: linear-gradient(white,lightgray);
-        color: darkblue !important;
-        border-radius: 5px;
-        text-align: center;
-        margin: 0.1em;
-    }
-    
-}
 
 .delete {
     color: darkred;
@@ -45,12 +32,12 @@
         }
 
         #available-pages {
-           @include available-items();
+           @include Paging.available-items();
         }  
 
         #available-letters {
             margin-top: 1em;
-            @include available-items();
+            @include Paging.available-items();
          }         
     }
 
@@ -67,4 +54,3 @@
         }
     }
 }
-    

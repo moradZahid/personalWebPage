@@ -1,0 +1,57 @@
+@use '../../home/css/partials/globalStyle';
+@use '../../home/css/partials/header';
+@use '../../home/css/partials/mainGlobal';
+@use '../../home/css/partials/footer';
+@use '../../home/css/partials/changeLang';
+@use '../../userAccountHandler/css/partials/containers';
+@use 'partials/paging' as Paging;
+
+
+.secondary-container-ME {
+    @extend .secondary-container;
+    padding: 0.5em 0em;
+
+    form {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        justify-items: center;
+        align-items: center;
+        
+        input {
+            margin: 0.5em 1em;
+        }
+    
+        [for="french"] {
+            grid-column: 1/2;
+            grid-row: 1/2;
+            justify-self: end;
+        }
+    
+        [for="english"] {
+            grid-column: 1/2;
+            grid-row: 2/3;
+            justify-self: end;
+        }
+        
+        #french {
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+    
+        #english {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+
+        #modify {
+            grid-column: 1/2;
+            grid-row: 3/4;
+        }
+
+        #cancel {
+            grid-column: 2/3;
+            grid-row: 3/4;
+        }
+    }
+}

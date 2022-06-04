@@ -17,6 +17,8 @@ include(dirname(__FILE__).'/manageEntriesCheckForErrors.php');
 
 /************************************* Display list of entries ****************/
 
+save_letter_page($letter, $page_nbr);
+
 $request = new DictionaryService();
 
 $request->displayEntriesList($letter,$page_nbr);

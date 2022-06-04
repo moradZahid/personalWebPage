@@ -20,7 +20,7 @@ else
 	$msg = NULL;
 }
 
-if ($_SESSION['success'] !== NULL)
+if (isset($_SESSION['success']))
 {
 	$success = filter_var($_SESSION['success'],FILTER_SANITIZE_SPECIAL_CHARS);
 }

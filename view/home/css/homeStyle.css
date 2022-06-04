@@ -50,6 +50,7 @@ input {
 
 select {
   margin: 0.5em 0.5em;
+  font-size: smaller;
 }
 
 .hidden {
@@ -189,9 +190,10 @@ footer ul a:visited {
   justify-items: center;
   align-items: center;
   padding-top: 2em;
+  margin: 0px 2em;
 }
 #main-container #translation-form {
-  width: 100%;
+  width: 95%;
   grid-area: area1;
   align-self: end;
   padding: 1em 0px;
@@ -200,6 +202,9 @@ footer ul a:visited {
   grid-template-rows: auto auto auto auto auto;
   justify-items: center;
   align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  margin-bottom: 1em;
 }
 #main-container #translation-form [for=expression] {
   grid-column: 1/2;
