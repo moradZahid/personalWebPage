@@ -1,23 +1,20 @@
 <?php
-session_start();
-include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
-
-
 try
 {
 	include_once(dirname(__FILE__).'/manageEntries.php');
 }
-catch(IsNotSet $e)
-{
-	$_SESSION['msg'] = 'the '.$e->getMessage().' is not set <br>';
-	$url = $_SESSION['index'];
-	$url .= '/controller/frontalController.php?from=manage entries services';
-	header('Location:'.$url);
-}
 catch(UnexpectedValue $e)
 {
-	$_SESSION['msg'] = 'the '.$e->getMessage().' has an unexpected value <br>';
+	if ($_SESSION['lang'] == 'english')
+	{
+		$_SESSION['msg'] = 'Error. Action not allowed.';
+	}
+	else
+	{
+		$_SESSION['msg'] = 'Erreur. Action non autorisée.';
+	}
 	$url = $_SESSION['index'];
-	$url .= '/controller/frontalController.php?from=manage entries services';
+	$url .= '/controller/frontalController.php?from=';
+	$url .= $service;
 	header('Location:'.$url);
 }

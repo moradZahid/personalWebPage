@@ -1,15 +1,12 @@
 <?php
-include_once(dirname(__FILE__).'/DictionaryService.class.php');
 include_once(dirname(__FILE__).'/controllerDictionaryHandlerFunctions.php');
-include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFunctions.php');
-
-verify_permission('manage entries services');
+check_permission();
 
 
 global $ENTRIES_PER_PAGE;
 global $nbr_entries;
 
-$ENTRIES_PER_PAGE = 10;
+$ENTRIES_PER_PAGE = $_SESSION['nbr_entries_per_page'];
 $nbr_entries = get_number_entries();
 
 /************************************* Check for errors ***********************/
@@ -19,6 +16,8 @@ include(dirname(__FILE__).'/manageEntriesCheckForErrors.php');
 
 
 /************************************* Display list of entries ****************/
+
+save_letter_page($letter, $page_nbr);
 
 $request = new DictionaryService();
 

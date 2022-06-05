@@ -4,105 +4,82 @@ $url = $_SESSION['index'];
 
 if (!filter_has_var(INPUT_GET,"from"))
 {
-	$_SESSION['service']=NULL;
-	if (isset($_SESSION['lang']) && $_SESSION['lang']=='english')
+	$_SESSION['service'] = NULL;
+	if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'english')
 	{
-		include(dirname(__FILE__,2).'/view/homeEnglishTemplate.php');
+		include(dirname(__FILE__,2).'/view/home/homeEnglishTemplate.php');
 	}
 	else
 	{
-		include(dirname(__FILE__,2).'/view/homeFrenchTemplate.php');
+		include(dirname(__FILE__,2).'/view/home/homeFrenchTemplate.php');
 	}
 }
 else
 {
-	$call=filter_input(INPUT_GET,'from',FILTER_SANITIZE_SPECIAL_CHARS);
+	$call = filter_input(INPUT_GET,'from',FILTER_SANITIZE_SPECIAL_CHARS);
 	switch ($call)
 	{
-	case 'translation query':
+		case 'cv':
 
-		$_SESSION['service'] = NULL;
-		header('Location:'.$url.'/controller/dictionary/dictionaryController.php');
-		break;
+			$_SESSION['service']=NULL;
+			$_SESSION['msg']=NULL;
+			include(dirname(__FILE__).'/cv/cv.php');
+			break;
 
+		
+		case 'changeLang':
 
-	case 'cv':
-
-		$_SESSION['service']=NULL;
-		$_SESSION['msg']=NULL;
-		include(dirname(__FILE__).'/cv/cv.php');
-		break;
-
-
-	case 'functionalView':
-
-		$_SESSION['service']=NULL;
-		$_SESSION['msg']=NULL;
-		include(dirname(__FILE__).'/functionalView/functionalView.php');
-		break;
+			$_SESSION['msg'] = NULL;
+			include(dirname(__FILE__).'/changeLang/changeLangController.php');
+			break;
 
 
-	case 'staticView':
+		case 'logout':
+			include(dirname(__FILE__).'/authorisationSystem/logout.php');
+			break;
+		
 
-		$_SESSION['service']=NULL;
-		$_SESSION['msg']=NULL;
-		include(dirname(__FILE__).'/staticView/staticView.php');
-		break;
+		case 'createUserAccount':
+			$_SESSION['service'] = 'createUserAccount';
+			header('Location:'.$url.'/controller/userAccountHandler/userAccountHandlerController.php');
+			break;
 
-	case 'dynamicView':
+		case 'authentication':
+			$_SESSION['service'] = 'authentication';
+			header('Location:'.$url.'/controller/authorisationSystem/authorisationSystemController.php');
+			break;
+			
 
-		$_SESSION['service']=NULL;
-		$_SESSION['msg']=NULL;
-		include(dirname(__FILE__).'/dynamicView/dynamicView.php');
-		break;
-
-
-	case 'change lang':
-
-		$_SESSION['service']=NULL;
-		$_SESSION['msg']=NULL;
-		include(dirname(__FILE__).'/changeLang/changeLangController.php');
-		break;
-
-
-	case 'manage entries services':
-
-		include(dirname(__FILE__).'/authorisationSystem/authorisationSystemController.php');
-		break;
-
-
-	case 'add entries service':
-
-		include(dirname(__FILE__).'/authorisationSystem/authorisationSystemController.php');
-		break;
+		case 'manageUserAccounts':
+			$_SESSION['service'] = 'manageUserAccounts';
+			header('Location:'.$url.'/controller/userAccountHandler/userAccountHandlerController.php');
+			break;
+			
+				
+		case 'manageEntries':
+			$_SESSION['service'] = 'manageEntries';
+			header('Location:'.$url.'/controller/dictionaryHandler/dictionaryHandlerController.php');
+			break;
 
 
-	case 'modify entries service':
+		case 'appExplanations':
+			$_SESSION['service'] = 'appExplanations';
+			header('Location:'.$url.'/controller/appExplanations/appExplanationsController.php');
+			break;
 
-		include(dirname(__FILE__).'/authorisationSystem/authorisationSystemController.php');
-		break;
+		case 'resume':
+			include (dirname(__FILE__,2).'/view/resume/resumeTemplate.php');
+			break;
 
-
-	case 'delete entries service':
-
-		include(dirname(__FILE__).'/authorisationSystem/authorisationSystemController.php');
-		break;
-
-
-	case 'authentication interface':
-
-		include(dirname(__FILE__).'/authorisationSystem/authenticationController.php');
-		break;
-
-
-	case 'authorisation system':
-
-		header('Location:'.$url.'/controller/dictionaryHandler/dictionaryHandlerController.php');
-		break;
-
-
-	case 'logout':
-		include(dirname(__FILE__).'/authorisationSystem/logout.php');
-		break;
+		default: 
+			$_SESSION['service'] = NULL;
+			if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'english')
+			{
+				include(dirname(__FILE__,2).'/view/home/homeEnglishTemplate.php');
+			}
+			else
+			{
+				include(dirname(__FILE__,2).'/view/home/homeFrenchTemplate.php');
+			}
 	}
 }

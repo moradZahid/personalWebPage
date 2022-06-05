@@ -8,10 +8,17 @@ class AuthenticationRequest
 
 	public function __construct($login,$paswd)
 	{
-		$this->login=$login;
-		$this->password=$paswd;
+		$this->login = $login;
+		$this->password = $paswd;
 	}
 
+	/**
+     * cleanSession : erase user account informations in $_SESSION
+     */
+    private function cleanSession()
+    {
+        $_SESSION['authentication_login'] = NULL;
+	}
 
 	/**
 	 * checkForLoginPassword : check the users list for the 'login' and 'password' given by the user
@@ -50,22 +57,17 @@ class AuthenticationRequest
 	 */
 	public function authenticate()
 	{
-		$service=$_SESSION['service'];
 		$user_id = $this->checkForLoginPassword();
 		if ($user_id > 0)
 		{
 			$_SESSION['login'] = $this->login;
 			$_SESSION['user_id'] = $user_id;
 			$_SESSION['msg'] = NULL;
-
-			$url = $_SESSION['index'];
-			$url .= '/controller/frontalController.php?from=';
-			$url .= $service;
-			header('Location:'.$url);
 		}
 		else
 		{
-			throw new InvalidPassword($service);
+			throw new InvalidPassword();
 		}
+		$this->cleanSession();
 	}
 }

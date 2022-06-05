@@ -5,7 +5,7 @@ include_once(dirname(__FILE__).'/EntriesAdditionWithForm.class.php');
 include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFunctions.php');
 
 
-verify_permission('add entries service');
+check_permission();
 
 
 /************************************* Check for errors ********************************************/
@@ -31,7 +31,14 @@ else
 
 /************************************* Successful ending **********************************************/
 
-$_SESSION['msg']='entries added';
+if ($_SESSION['lang'] == 'english')
+{
+	$_SESSION['success']='Entries added';
+}
+else
+{
+	$_SESSION['success']='Les entrées ont été ajoutées';
+}
 $url = $_SESSION['index'];
-$url .= '/controller/frontalController.php?from=add entries service';
+$url .= '/controller/frontalController.php?from='.$service;
 header('Location:'.$url);

@@ -12,13 +12,13 @@ try
 	$prep = $db->prepare($str_prep_fr);
 
 	$prep->execute(array( 'french' => $entry->getFrench(),
-												'french_id' => $entry->getFrenchId()));
+						  'french_id' => $entry->getFrenchId()));
 
 
 	$prep = $db->prepare($str_prep_en);
 
 	$prep->execute(array('english' => $entry->getEnglish(),
-						  				 'english_id' => $entry->getEnglishId()));
+						 'english_id' => $entry->getEnglishId()));
 }
 catch(Exception $e)
 {

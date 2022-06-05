@@ -1,0 +1,41 @@
+@use '../../home/css/partials/globalStyle';
+@use '../../home/css/partials/header';
+@use '../../home/css/partials/mainGlobal';
+@use '../../home/css/partials/footer';
+@use '../../home/css/partials/changeLang';
+@use '../../userAccountHandler/css/partials/containers';
+
+
+.delete {
+    color: darkred !important;
+}
+
+.cancel {
+    color: green !important;
+}
+
+.delete:visited {
+    color: darkred !important;
+}
+
+.cancel:visited {
+    color: green !important;
+}
+
+.secondary-container-ME {
+    @extend .secondary-container; 
+    padding-bottom: 0.5em;
+        
+    td {
+        padding: 1em 1em;
+    }
+
+    .confirmation {
+        border: 1px solid lightgray;
+        background: linear-gradient(white,lightgray);
+        border-radius: 5px;
+        text-align: center;
+        margin: 0.3em;
+        padding: 0px 0.2em;    
+    }
+}

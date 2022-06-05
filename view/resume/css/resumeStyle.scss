@@ -1,0 +1,21 @@
+@use '../../home/css/partials/globalStyle';
+@use '../../home/css/partials/header';
+@use '../../home/css/partials/mainGlobal';
+@use '../../home/css/partials/footer';
+@use '../../home/css/partials/changeLang';
+
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 90% 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.secondary-container {
+    grid-column: 2/3;
+
+    img {
+        width: 100%;
+    }
+}

@@ -6,17 +6,19 @@ for ($i=0; $i<26; $i++)
 {
 	// prepare the query
 	$str_query = 'SELECT COUNT(*) AS nbr
-								 FROM French INNER JOIN Dictionary INNER JOIN English
-								 ON French.french_id=Dictionary.french_id
-								 AND English.english_id=Dictionary.english_id
-								 WHERE French.expression LIKE "';
+				  FROM French INNER JOIN Dictionary INNER JOIN English
+				  ON French.french_id=Dictionary.french_id
+				  AND English.english_id=Dictionary.english_id
+				  WHERE French.expression LIKE "';
 	$str_query .= chr($i+97);
 	$str_query .= '%"';
+	$str_query .= 'AND Dictionary.user_id=:user_id';
 
 	// execute the query
 	try
 	{
-		$ans = $db->query($str_query);
+		$ans = $db->prepare($str_query);
+		$ans->execute(array('user_id' => $_SESSION['user_id']));
 	}
 	catch(Exception $e)
 	{

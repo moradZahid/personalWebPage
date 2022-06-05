@@ -1,9 +1,16 @@
 <?php
+
+if (!check_service($_SESSION['service']))
+{
+	throw new ServiceIsNotSet();
+}
+$service = $_SESSION['service'];
+
 if (!filter_has_var(INPUT_POST,'method'))
 {
 	throw new IsNotSet('method');
 }
-$method = filter_input(INPUT_POST,'method',FILTER_SANITIZE_SPECIAL_CHARS);
+$method = filter_input(INPUT_POST,'method',FILTER_UNSAFE_RAW);
 switch ($method)
 {
 	case 'file' :
@@ -17,7 +24,7 @@ switch ($method)
 
 		if ($mod != 'eng:fr' && $mod != 'fr:eng')
 		{
-			throw new UnexpectedValue('modality');
+			throw new UnexpectedValue();
 		}
 
 		// check for file upload
@@ -61,5 +68,5 @@ switch ($method)
 		break;
 
 	default:
-		throw new UnexpectedValue('method');
+		throw new UnexpectedValue();
 }

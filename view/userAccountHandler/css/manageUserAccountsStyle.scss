@@ -1,0 +1,110 @@
+@use '../../home/css/partials/globalStyle';
+@use '../../home/css/partials/header';
+@use '../../home/css/partials/mainGlobal';
+@use '../../home/css/partials/footer';
+@use '../../home/css/partials/changeLang';
+@use 'partials/containers';
+
+.btn {
+    border: 1px solid lightgray;
+    background: linear-gradient(white,lightgray);
+    border-radius: 5px;
+    text-align: center;
+    margin: 0.3em;
+    padding: 0px 0.2em;    
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+.delete {
+    color: darkred !important;
+}
+
+.delete:visited {
+    color: darkred !important;
+}
+
+.secondary-container-CUA {
+    @extend .secondary-container; 
+    grid-template-rows: auto auto 1em;
+
+    form {
+        align-self: center;
+        grid-row: 1/2;
+        min-width: 856px;
+        padding: 1em 0px;
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-template-rows: auto auto auto auto;
+        justify-items: center;
+        align-items: center;
+        
+        [for="login"] {
+            grid-column: 1/2;
+            grid-row: 1/2;
+            justify-self: end;
+        }
+            
+        [for="password1"] {
+            grid-column: 1/2;
+            grid-row: 3/4;
+            justify-self: end;
+        }
+                
+        [for="password2"] {
+            grid-column: 1/2;
+            grid-row: 4/5;
+            justify-self: end;
+        }
+                
+        [for="email"] {
+            grid-column: 1/2;
+            grid-row: 2/3;
+            justify-self: end;
+        }
+           
+        #login{
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+            
+        #password1{
+            grid-column: 2/3;
+            grid-row: 3/4;
+        }
+            
+        #password2{
+            grid-column: 2/3;
+            grid-row: 4/5;
+        }
+            
+        #email{
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+
+        #sub-cancel {
+            grid-column: 3/4;
+            grid-row: 2/3;
+            justify-self: start;
+        }
+
+        #pswd-btn {
+            grid-column: 1/2;
+            grid-row: 3/4;
+        }
+    }
+
+    #delete {
+        margin-top: 2em;
+        grid-row: 2/3;
+        padding-left: 1em;
+    }
+            
+    .error {
+        grid-row: 3/4;
+    }
+}
+

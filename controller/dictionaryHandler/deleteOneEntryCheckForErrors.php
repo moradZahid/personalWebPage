@@ -1,5 +1,11 @@
 <?php
 
+if (!check_service($_SESSION['service']))
+{
+	throw new ServiceIsNotSet();
+}
+$service = $_SESSION['service'];
+
 // check if the identity numbers are passed in the url
 // their presence is mandatory
 if (!filter_has_var(INPUT_GET,'french_id'))

@@ -1,8 +1,10 @@
 <?php
-$_SESSION['add entries permission']='not allowed';
-$_SESSION['manage entries services permission']='not allowed';
 $_SESSION['login']='anonymous';
 $_SESSION['msg']=NULL;
+$_SESSION['success']=NULL;
+$_SESSION['accounts_page_nbr'] = NULL;
+$_SESSION['letter'] = NULL;
+$_SESSION['page_nbr'] = NULL;
 
 $url = $_SESSION['index'];
 $url .= '/controller/frontalController.php';

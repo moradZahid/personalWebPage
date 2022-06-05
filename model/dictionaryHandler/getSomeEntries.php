@@ -9,13 +9,15 @@ $str_query = 'SELECT French.expression AS french, English.expression AS english,
 				ON French.french_id=Dictionary.french_id
 				AND English.english_id=Dictionary.english_id
 				WHERE French.expression LIKE "'.$letter.'%" ';
+$str_query .= 'AND Dictionary.user_id=:user_id ';
 $str_query .=	'ORDER BY French.expression
 				LIMIT '.$offset.' ,'.$nbr;
 				
 //execute the query
 try
 {
-	$ans = $db->query($str_query);
+	$ans = $db->prepare($str_query);
+	$ans->execute(array('user_id' => $_SESSION['user_id']));
 }
 catch(Exception $e)
 {

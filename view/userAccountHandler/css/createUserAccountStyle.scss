@@ -1,0 +1,60 @@
+@use '../../home/css/partials/globalStyle';
+@use '../../home/css/partials/header';
+@use '../../home/css/partials/mainGlobal';
+@use '../../home/css/partials/footer';
+@use '../../home/css/partials/changeLang';
+@use 'partials/containers';
+@use 'partials/userAccountForm';
+
+$NUMBER_IMAGES: 10;
+
+@mixin captcha-format() {
+    @for $i from 1 through $NUMBER_IMAGES {
+        #captcha#{$i} {
+                img {
+                    width: 205px;
+                    height: 50px;
+                    object-fit: fill;
+                }
+        }
+    }
+}
+
+.secondary-container-CUA {
+    @extend .secondary-container; 
+    grid-template-rows: auto auto 1em;
+    
+        .userAccount-form-CUA {
+            @extend .userAccount-form;
+            grid-template-rows: auto auto auto auto auto;
+
+            [for="code"] {
+                grid-column: 1/2;
+                grid-row: 5/6;
+                justify-self: end;
+            }
+
+            #code{
+                grid-column: 2/3;
+                grid-row: 5/6;
+            }
+
+            #submit {
+                grid-column: 3/4;
+                grid-row: 5/6;
+                justify-self: start;
+            }
+        }
+
+        #captcha {
+            grid-row: 2/3;
+            padding-left: 1em;
+            align-self: center;
+
+            @include captcha-format();
+        }
+            
+        .error {
+            grid-row: 3/4;
+        }
+    }

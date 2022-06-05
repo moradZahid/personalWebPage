@@ -1,0 +1,20 @@
+footer {
+	background-color: rgb(64,65,65);
+	border-top:thick solid rgb(200,83,83);
+	padding: 1.5em 0px;
+	font-family: sans-serif;
+	font-size: 16px;
+	font-style: italic;
+
+	ul {
+		display: flex;
+	
+		a {
+			color: white;
+		}
+
+		a:visited {
+			color: white;
+		}
+	}	
+}

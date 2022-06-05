@@ -1,0 +1,61 @@
+@use '../../home/css/partials/globalStyle';
+@use '../../home/css/partials/header';
+@use '../../home/css/partials/mainGlobal';
+@use '../../home/css/partials/footer';
+@use '../../home/css/partials/changeLang';
+@use '../../userAccountHandler/css/partials/containers';
+@use 'partials/paging' as Paging;
+
+
+.delete {
+    color: darkred;
+}
+
+.delete:visited
+{
+    color: darkred !important;
+}
+
+.secondary-container-ME {
+    @extend .secondary-container; 
+    grid-template-rows: 1em auto auto ;
+
+    #message {
+        grid-row: 1/2;
+        margin-top: 1em;
+    }
+
+    
+    
+    #entriesTable {
+        justify-self: center;
+        grid-row: 2/3;
+        margin-top: 1em;
+
+        td {
+            padding: 0em 1em;
+        }
+
+        #available-pages {
+           @include Paging.available-items();
+        }  
+
+        #available-letters {
+            margin-top: 1em;
+            @include Paging.available-items();
+         }         
+    }
+
+    form {
+        grid-row: 3/4;
+        padding-top: 1em;
+
+        [for="english"] {
+            margin-left: 1em;
+        }
+
+        #file_name {
+            font-size: smaller;
+        }
+    }
+}

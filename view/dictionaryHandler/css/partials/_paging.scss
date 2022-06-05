@@ -1,0 +1,14 @@
+@mixin available-items() {
+    display: flex;
+
+    .paging {
+        width: 2em;
+        border: 1px solid lightgray;
+        background: linear-gradient(white,lightgray);
+        color: darkblue !important;
+        border-radius: 5px;
+        text-align: center;
+        margin: 0.1em;
+    }
+    
+}

@@ -1,0 +1,42 @@
+@use '../../home/css/partials/globalStyle';
+@use '../../home/css/partials/header';
+@use '../../home/css/partials/mainGlobal';
+@use '../../home/css/partials/footer';
+@use '../../home/css/partials/changeLang';
+@use 'partials/containers';
+@use '../../dictionaryHandler/css/partials/paging' as Paging;
+
+
+.delete {
+    color: darkred;
+}
+
+.delete:visited
+{
+    color: darkred !important;
+}
+
+.secondary-container-ME {
+    @extend .secondary-container; 
+    grid-template-rows: 1em auto  ;
+
+    #message {
+        grid-row: 1/2;
+        margin-top: 1em;
+    }
+   
+    #userAccountsTable {
+        justify-self: center;
+        grid-row: 2/3;
+        margin-top: 1em;
+
+        td {
+            padding: 0.1em 1em;
+        }
+
+        #available-pages {
+           @include Paging.available-items();
+           margin: 1em 1em;
+        }  
+    }
+}

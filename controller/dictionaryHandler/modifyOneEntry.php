@@ -3,7 +3,7 @@ include_once(dirname(__FILE__).'/EntryModification.class.php');
 include_once(dirname(__FILE__,2).'/authorisationSystem/authorisationSystemFunctions.php');
 
 
-verify_permission('manage entries services');
+check_permission();
 
 /************************************* Check for errors ********************************************/
 

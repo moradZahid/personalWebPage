@@ -1,29 +1,26 @@
 <?php
+
 /******************************** Check for errors **************************************/
 
-if (!filter_has_var(INPUT_POST,'lang'))
-{
-	throw new IsNotSet();
-}
-$lang=filter_input(INPUT_POST,'lang',FILTER_SANITIZE_SPECIAL_CHARS);
+include(dirname(__FILE__).'/changeLangCheckForErrors.php');
 
 
 /******************************* Change de language of the session *********************/
 
-if ($lang=='english')
+if ($lang == 'english')
 {
-	$_SESSION['lang']='english';
+	$_SESSION['lang'] = 'english';
 }
 else
 {
-	$_SESSION['lang']='french';
+	$_SESSION['lang'] = 'french';
 }
+$_SESSION['result'] = NULL;
 
 
 /****************************** Apply change *******************************************/ 
 
 $url = $_SESSION['index'];
-$url .= '/controller/frontalController.php';
-header('Location:');
-
-	
+$url .= '/controller/frontalController.php?from=';
+$url .= $service;
+header('Location:'.$url);	

@@ -4,20 +4,26 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
 
 /**
  * get_number_entries	: return for each letters the number of entries in the dictionary
- *                      whose the french expression begins with this letter
+ *                        whose the french expression begins with this letter
  *
- *						        : return : array of integer
+ *						: return : array of integer
  */
- function get_number_entries()
- {
- 	  // receive the number of entries for each letters
- 	  $nbr_entries = [];
+function get_number_entries()
+{
+ 	// will receive the number of entries for each letters
+ 	$nbr_entries = [];
 
- 	  //call the model to fill $nbr_entries
- 	  include(dirname(__FILE__,3).'/model/dictionaryHandler/getNumberEntries.php');
-
+ 	//call the model to fill $nbr_entries
+	if ($_SESSION['login'] == 'admin')
+	{
+		include(dirname(__FILE__,3).'/model/dictionaryHandler/getNumberEntriesAdmin.php');
+	}
+	else
+	{
+ 		include(dirname(__FILE__,3).'/model/dictionaryHandler/getNumberEntries.php');
+	}
     return $nbr_entries;
- }
+}
 
 
 /**
@@ -25,7 +31,7 @@ include_once(dirname(__FILE__).'/dictionaryHandlerExceptions.php');
  *
  *				    : param : $page_nbr	: integer
  *
- *				            : return: integer
+ *				    : return: integer
  */
 function get_offset($page_nbr)
 {
@@ -35,12 +41,12 @@ function get_offset($page_nbr)
 }
 
 /**
- * get_nbr_entries_to_display	: return the number of entries to display
+ * get_nbr_entries_to_display : return the number of entries to display
  *
- *								            : param : $letter	  : string
- *											              : $page_nbr	: integer
+ *							  : param : $letter	  : string
+ *							          : $page_nbr : integer
  *
- *								            : return: integer
+ *							  : return: integer
  */
  function get_nbr_entries_to_display($letter,$page_nbr)
  {
@@ -48,6 +54,11 @@ function get_offset($page_nbr)
 	global $ENTRIES_PER_PAGE;
 
 	$index = ord($letter) - 97;
+
+	if ($nbr_entries[$index] == 0)
+	{
+		return 0;
+	}
 
 	$remainder = $nbr_entries[$index] % $ENTRIES_PER_PAGE;
 	$last_page = ceil($nbr_entries[$index] / $ENTRIES_PER_PAGE);
@@ -69,20 +80,20 @@ function get_offset($page_nbr)
  *
  *							: param : $letter : string
  *
- *							: return: integer
+ *							: return: boolean
  */
  function check_validity_letter($letter)
  {
  	 if (strlen($letter) != 1)
  	 {
- 	 	 return 0;
+ 	 	 return false;
  	 }
  	 $ord = ord($letter);
  	 if ($ord < 97 || $ord > 122)
  	 {
- 	 	 return 0;
+ 	 	 return false;
  	 }
- 	 return 1;
+ 	 return true;
  }
 
 
@@ -92,7 +103,7 @@ function get_offset($page_nbr)
  *
  *						: param : $page		: integer
  *								: $letter	: string
- *						: return: integer
+ *						: return: boolean
  */
  function check_validity_page($page,$letter)
  {
@@ -102,7 +113,11 @@ function get_offset($page_nbr)
 
 	if ($page < 1)
 	{
-		return 0;
+		return false;
+	}
+	if($page == 1)
+	{
+		return true;
 	}
 
 	$index = ord($letter) - 97;
@@ -111,9 +126,9 @@ function get_offset($page_nbr)
 
 	if ($page > $last_page)
 	{
-		return 0;
+		return false;
 	}
-	return 1;
+	return true;
  }
 
 /**
@@ -140,3 +155,14 @@ function get_offset($page_nbr)
      }
      return $arr_pairs;
  }
+
+
+/**
+ * save_letter_page : memorize the letter and the page of the list of entries
+ * 					  for the manage entries interface.
+ */
+function save_letter_page($letter, $page_nbr)
+{
+	$_SESSION['letter'] = $letter;
+	$_SESSION['page_nbr'] = $page_nbr;
+} 
