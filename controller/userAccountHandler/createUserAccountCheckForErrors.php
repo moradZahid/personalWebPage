@@ -21,6 +21,8 @@ if (strlen($login) == 0)
 {
 	throw new EmptyString();
 }
+$_SESSION['create_account_login'] = $login;
+
 
 // check for password1
 if (!filter_has_var(INPUT_POST,'password1'))
@@ -32,6 +34,8 @@ if (strlen($password1) == 0)
 {
 	throw new EmptyString();
 }
+$_SESSION['create_account_password1'] = $password1;
+
 
 // check for password2
 if (!filter_has_var(INPUT_POST,'password2'))
@@ -43,6 +47,8 @@ if (strlen($password2) == 0)
 {
 	throw new EmptyString();
 }
+$_SESSION['create_account_password2'] = $password2;
+
 
 // check for email
 if (!filter_has_var(INPUT_POST,'email'))
@@ -54,6 +60,8 @@ if (strlen($email) == 0)
 {
 	throw new EmptyString();
 }
+$_SESSION['create_account_email'] = $email;
+
 
 // check for code
 if (!filter_has_var(INPUT_POST,'code'))
@@ -66,6 +74,8 @@ if (strlen($code) == 0)
 {
 	throw new EmptyString();
 }
+$_SESSION['create_account_code'] = $code;
+
 
 // check for captcha_nbr
 if (!filter_has_var(INPUT_POST,'captcha_nbr'))

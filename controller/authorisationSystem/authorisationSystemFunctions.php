@@ -11,64 +11,16 @@ function check_service($strg)
 {
 	switch ($strg)
 	{
-	case 'manage entries services':
-		return 1;
-	case 'add entries service':
-		return 1;
-	case 'createUserAccount':
-		return 1;
-	case 'authentication':
-		return 1;
-	case 'manageEntries':
-		return 1;
-	default:
-		return 0;
-	}
-}
-
-/**
- * verify_permission	: simple verification that the user has the right to use $service
- *						: param : $service	: string containing the service used
- */
-function verify_permission($service)
-{
-	try
-	{
-		switch ($service)
-		{
-		case 'add entries service':
-
-			if ($_SESSION['add entries permission']!='allowed')
-			{
-				throw new PermissionDenied();
-			}
-			break;
-
-
-		case 'manage entries services':
-			if ($_SESSION['manage entries services permission']!='allowed')
-			{
-				throw new PermissionDenied();
-			}
-			break;
-		}
-	}
-	catch(PermissionDenied $e)
-	{
-		if ($_SESSION['lang']=='english')
-		{
-			$_SESSION['msg']='Permission denied: you are not allowed to use this service';
-			$url = $_SESSION['index'];
-			$url .= '/controller/frontalController.php?from=error english';
-			header('Location:'.$url);
-		}
-		else
-		{
-			$_SESSION['msg']='Permission refusée: vous n\'êtes pas autorisé à utiliser ce service';
-			$url = $_SESSION['index'];
-			$url .= '/controller/frontalController.php?from=error french';
-			header('Location:'.$url);
-		}
+		case 'manageUserAccounts':
+			return 1;
+		case 'createUserAccount':
+			return 1;
+		case 'authentication':
+			return 1;
+		case 'manageEntries':
+			return 1;
+		default:
+			return 0;
 	}
 }
 
@@ -103,6 +55,15 @@ function check_permission()
 	}
 }
 
+/**
+ * verify_modification_entry_permission	: check if the user who wants to modify the entry is the 
+ * 										  owner of the entry
+ * 
+ * 										: param	: $french_id 	: integer
+ * 												: $english_id	: integer
+ * 
+ * 										:return: boolean
+ */
 function verify_modification_entry_permission($french_id,$english_id)
 {
 	if ($_SESSION['login'] == 'admin')
@@ -119,15 +80,62 @@ function verify_modification_entry_permission($french_id,$english_id)
 	}
 	catch(PermissionDenied $e)
 	{
-		$_SESSION['msg'] = 'Permission denied: you are not allowed to modifie or delete this entry';
-		$url = $_SESSION['index'];
-		$url .= '/controller/dictionaryHandler/manageEntriesController.php?letter=a&page=1';
-		header('Location:'.$url);
+		if ($_SESSION['lang'] == 'english')
+		{
+			$_SESSION['msg'] = 'Permission denied: you are not allowed to use this service';
+			$url = $_SESSION['index'];
+			$url .= '/controller/frontalController.php';
+			header('Location:'.$url);
+		}
+		else
+		{
+			$_SESSION['msg'] = 'Permission refusée: vous n\'êtes pas autorisé à utiliser ce service';
+			$url = $_SESSION['index'];
+			$url .= '/controller/frontalController.php';
+			header('Location:'.$url);
+		}
 	}
 	return true;
 }
 
-function saveFormInput($login,$password) {
-    $_SESSION['authentication_login'] = $login;
-    $_SESSION['authentication_password'] = $password;
+
+/**
+ * verify_modification_user_account_permission	: check if the user who wants to modify the user account  
+ * 										  			has the right to do it
+ * 
+ * 												: param	: $user_id 	: integer
+ * 
+ * 												:return: boolean
+ */
+function verify_modification_user_account_permission($user_id)
+{
+	if ($_SESSION['login'] == 'admin')
+	{
+		return true;
+	}
+	try
+	{
+		if ($user_id != $_SESSION['user_id'])
+		{
+			throw new PermissionDenied();
+		}
+	}
+	catch(PermissionDenied $e)
+	{
+		if ($_SESSION['lang'] == 'english')
+		{
+			$_SESSION['msg'] = 'Permission denied: you are not allowed to use this service';
+			$url = $_SESSION['index'];
+			$url .= '/controller/frontalController.php';
+			header('Location:'.$url);
+		}
+		else
+		{
+			$_SESSION['msg'] = 'Permission refusée: vous n\'êtes pas autorisé à utiliser ce service';
+			$url = $_SESSION['index'];
+			$url .= '/controller/frontalController.php';
+			header('Location:'.$url);
+		}
+	}
+	return true;
 }

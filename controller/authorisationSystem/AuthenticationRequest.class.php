@@ -12,6 +12,13 @@ class AuthenticationRequest
 		$this->password = $paswd;
 	}
 
+	/**
+     * cleanSession : erase user account informations in $_SESSION
+     */
+    private function cleanSession()
+    {
+        $_SESSION['authentication_login'] = NULL;
+	}
 
 	/**
 	 * checkForLoginPassword : check the users list for the 'login' and 'password' given by the user
@@ -61,5 +68,6 @@ class AuthenticationRequest
 		{
 			throw new InvalidPassword();
 		}
+		$this->cleanSession();
 	}
 }

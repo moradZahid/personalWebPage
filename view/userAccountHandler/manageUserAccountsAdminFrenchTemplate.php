@@ -1,21 +1,21 @@
 <?php
-include_once(dirname(__FILE__).'/viewDictionaryHandlerFunctions.php');
+include_once(dirname(__FILE__).'/viewUserAccountHandlerFunctions.php');
 
 // set $url, $fonts, $msg, $login and $success
-include(dirname(__FILE__).'/setManageEntriesVariables.php');
+include(dirname(__FILE__).'/setManageUserAccountsAdminVariables.php');
 ?>
 
 <!DOCTYPE html>
 <html>
 	<!-- head -->
-		<?php include(dirname(__FILE__).'/manageEntriesHead.php'); ?>
+		<?php include(dirname(__FILE__).'/manageUserAccountsAdminHead.php'); ?>
 	
 	<body>
 		<!-- header -->
 		<?php include(dirname(__FILE__,2).'/home/headerLoggedFrenchTemplate.php') ?>
 		<main>
 			<?php include(dirname(__FILE__,2).'/changeLang/changeLangFrenchTemplate.php') ?>
-			<h1>Gestion des entrées du dictionnaire</h1>
+			<h1>Gestion des informations personnelles</h1>
 			
 			<div class="main-container">
                 <div class="secondary-container-ME">
@@ -23,19 +23,17 @@ include(dirname(__FILE__).'/setManageEntriesVariables.php');
 						<span class="error"><?= $msg ?></span>
 						<span class="success"><?= $success ?></span>
 					</p>
-                    <div id="entriesTable">
+                    <div id="userAccountsTable">
 						<table>
 							<?php
-								foreach($entries_list as $entry)
+								foreach($user_account_list as $account)
 								{
-									display_entry($entry,'Modifier','Supprimer');
+									display_user_account($account,'Modifier','Supprimer');
 								}
 							?>
-						</table>    
-						<div id="available-letters"><?php $this->displayAvailableLetters(); ?></div>
-						<div id="available-pages"><?php $this->displayAvailablePages($letter); ?></div>
+						</table>
+						<div id="available-pages"><?php display_available_pages(); ?></div>
 					</div>
-                    <?php include(dirname(__FILE__).'/addEntriesFormFrenchTemplate.php') ?>
                 <div>
 			</div>
 		</main>

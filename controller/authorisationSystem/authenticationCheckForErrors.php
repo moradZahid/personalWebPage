@@ -18,6 +18,7 @@ if ($login == '')
 {
 	throw new EmptyString();
 }
+$_SESSION['authentication_login'] = $login;
 
 // check for password
 if (!filter_has_var(INPUT_POST,'password'))

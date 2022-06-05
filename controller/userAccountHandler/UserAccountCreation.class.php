@@ -21,25 +21,15 @@ class UserAccountCreation {
     }
 
     /**
-     *  checkEmail :  Check for valid email address
+     * cleanSession : erase user account informations in $_SESSION
      */
-    private function checkEmail() 
+    private function cleanSession()
     {
-        $this->email = filter_var($this->email, FILTER_VALIDATE_EMAIL);
-        if ($this->email === false) {
-	        throw new InvalidEmail();
-        }
-    }
-
-    /**
-     *  checkPassword :  Check for valid password
-     */
-    private function checkPassword() 
-    {
-        if ($this->password1 != $this->password2)
-        {
-            throw new InvalidPassword();
-        }
+        $_SESSION['create_account_login'] = NULL;
+        $_SESSION['create_account_password1'] = NULL;
+        $_SESSION['create_account_password2'] = NULL;
+        $_SESSION['create_account_email'] = NULL;
+        $_SESSION['create_account_code'] = NULL;
     }
 
     /**
@@ -90,10 +80,11 @@ class UserAccountCreation {
 
     public function execute() 
     {
-        $this->checkEmail();
-        $this->checkPassword();
+        checkEmail($this->email);
+        checkPassword($this->password1,$this->password2);
         $this->checkCode();
-        $userAccount = new UserAccount($this->login, $this->password1, $this->email);
+        $userAccount = new UserAccount($this->login, $this->email, $this->password1);
         include(dirname(__FILE__,3).'/model/userAccountHandler/addUserAccount.php');
+        $this->cleanSession();
     }
 }

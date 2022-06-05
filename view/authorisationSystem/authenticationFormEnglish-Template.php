@@ -7,8 +7,7 @@
 		   value="<?= $login ?>">
     
     <label for="password">Password :</label>
-	<input type="password" name="password" id="password"
-		   value="<?= $password ?>">
+	<input type="password" name="password" id="password">
 		   
     <input type="submit" value="Submit" id="submit">
 </form>

@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8" />
     <title> Autentication </title>
-    <link rel="stylesheet" href="<?=$url.'/view/dictionaryHandler/css/normalize.css'?>">
+    <link rel="stylesheet" href="<?=$url.'/view/home/css/normalize.css'?>">
     <link rel="stylesheet" href="<?=$url.'/view/authorisationSystem/css/authenticationStyle.css'?>"> 
     <link rel="stylesheet" 
         href="<?= $fonts.'/cmuserif_oblique_macroman/stylesheet.css' ?>" 

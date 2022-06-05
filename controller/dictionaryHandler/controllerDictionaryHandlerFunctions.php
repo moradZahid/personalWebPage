@@ -31,7 +31,7 @@ function get_number_entries()
  *
  *				    : param : $page_nbr	: integer
  *
- *				            : return: integer
+ *				    : return: integer
  */
 function get_offset($page_nbr)
 {
@@ -41,12 +41,12 @@ function get_offset($page_nbr)
 }
 
 /**
- * get_nbr_entries_to_display	: return the number of entries to display
+ * get_nbr_entries_to_display : return the number of entries to display
  *
- *								            : param : $letter	  : string
- *											              : $page_nbr	: integer
+ *							  : param : $letter	  : string
+ *							          : $page_nbr : integer
  *
- *								            : return: integer
+ *							  : return: integer
  */
  function get_nbr_entries_to_display($letter,$page_nbr)
  {

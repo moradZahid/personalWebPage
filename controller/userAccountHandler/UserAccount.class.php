@@ -2,13 +2,22 @@
 class UserAccount {
     private $login;
     private $password;
-    private $email;
+    private $email;    
+    private $userId;
 
-    public function __construct($login,$password,$email) 
+    public function __construct($login,$email,$password=NULL, $user_id=NULL) 
     {
         $this->login = $login;
         $this->password = $password;
         $this->email = $email;
+        if (isset($password))
+        {
+            $this->password = $password;
+        }
+        if (isset($user_id))
+        {
+            $this->userId = $user_id;
+        }
     }
 
     /**
@@ -30,5 +39,12 @@ class UserAccount {
      */
     public function getEmail() {
         return $this->email;
+    }
+
+     /**
+     * getUserId :   Return the userId attribute 
+     */
+    public function getUserId() {
+        return $this->userId;
     }
 }

@@ -20,7 +20,7 @@
 		</div>
         <div class="hidden" id="management-menu">
             <ul>
-                <li><a href="<?= $url.'/controller/frontalController.php?from=manageUserAccount'?>">
+                <li><a href="<?= $url.'/controller/frontalController.php?from=manageUserAccounts'?>">
                 Manage your account</a></li>
                 <li><a href="<?= $url.'/controller/frontalController.php?from=manageEntries'?>">
                 Manage your entries</a></li>

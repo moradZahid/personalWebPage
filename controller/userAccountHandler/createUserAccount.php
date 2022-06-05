@@ -7,7 +7,7 @@ include_once(dirname(__FILE__).'/createUserAccountCheckForErrors.php');
 
 
 /************************************* Create a user account ****************************/
-saveFormInput($login,$password1,$password2,$email,$code);
+
 $request = new UserAccountCreation($login,$password1,$password2,$email,$code,$captcha_nbr);
 $request->execute();
 
