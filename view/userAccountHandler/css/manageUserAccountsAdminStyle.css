@@ -94,18 +94,19 @@ header #header-block-1 ul {
 }
 header #header-block-1 ul li {
   font-size: 23px;
+  /*#home {
+  	color: red;
+  }
+
+  #home:visited {
+  	color: red;
+  }*/
 }
 header #header-block-1 ul li a {
   color: black;
 }
 header #header-block-1 ul li a:visited {
   color: black;
-}
-header #header-block-1 ul li #home {
-  color: red;
-}
-header #header-block-1 ul li #home:visited {
-  color: red;
 }
 header .french-width {
   width: 206px;

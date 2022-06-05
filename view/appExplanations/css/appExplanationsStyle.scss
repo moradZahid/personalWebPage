@@ -1,0 +1,29 @@
+@use '../../home/css/partials/globalStyle';
+@use '../../home/css/partials/header';
+@use '../../home/css/partials/mainGlobal';
+@use '../../home/css/partials/footer';
+@use '../../home/css/partials/changeLang';
+
+img {
+    width: 75%;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 90% 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.secondary-container {
+    grid-column: 2/3;
+    border : 1px solid black;
+    background-color: white;
+    min-width: 856px;
+
+    figure {
+        text-align: center;
+        margin: 6em 0em;
+    }
+    
+}

@@ -8,11 +8,5 @@
 		<li><a href="https://moradzahid.github.io/personalWebPage">
 			Github
 		</a></li>
-		<li><a href="<?= $url.'/controller/frontalController.php?from=manage entries services'?>">
-			Administrative page
-		</a></li>
-		<li><a href="<?= $url.'/controller/frontalController.php?from=logout'?>">
-			Logout
-		</a></li>
 	</ul>	
 </footer>

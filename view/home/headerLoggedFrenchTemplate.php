@@ -5,9 +5,9 @@
 			<ul>
 				<li><a href="<?=$url.'/controller/frontalController.php'?>" 
 					id='home'>Accueil</a></li>
-				<li><a href="<?=$url.'/controller/frontalController.php?from=tuto'?>"
+				<li><a href="<?=$url.'/controller/frontalController.php?from=appExplanations'?>"
 					id='app-explain'>Fonctionnement du site</a></li> 
-				<li><a href="<?=$url.'/controller/frontalController.php?from=cv'?>"
+				<li><a href="<?=$url.'/controller/frontalController.php?from=resume'?>"
 					id='cv'>CV</a></li>
 			</ul>	
 		</nav>

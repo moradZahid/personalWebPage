@@ -51,14 +51,24 @@ else
 			
 
 		case 'manageUserAccounts':
-				$_SESSION['service'] = 'manageUserAccounts';
-				header('Location:'.$url.'/controller/userAccountHandler/userAccountHandlerController.php');
-				break;
+			$_SESSION['service'] = 'manageUserAccounts';
+			header('Location:'.$url.'/controller/userAccountHandler/userAccountHandlerController.php');
+			break;
 			
 				
 		case 'manageEntries':
 			$_SESSION['service'] = 'manageEntries';
 			header('Location:'.$url.'/controller/dictionaryHandler/dictionaryHandlerController.php');
+			break;
+
+
+		case 'appExplanations':
+			$_SESSION['service'] = 'appExplanations';
+			header('Location:'.$url.'/controller/appExplanations/appExplanationsController.php');
+			break;
+
+		case 'resume':
+			include (dirname(__FILE__,2).'/view/resume/resumeTemplate.php');
 			break;
 
 		default: 
