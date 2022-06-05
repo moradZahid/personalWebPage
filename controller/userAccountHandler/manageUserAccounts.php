@@ -4,7 +4,8 @@ check_permission();
 
 global $ACCOUNTS_PER_PAGE;
 
-$ACCOUNTS_PER_PAGE = 3;
+$ACCOUNTS_PER_PAGE = $_SESSION['nbr_accounts_per_page'];
+
 
 /************************************* Check for errors ***********************/
 

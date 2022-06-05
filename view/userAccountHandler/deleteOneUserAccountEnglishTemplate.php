@@ -6,21 +6,21 @@ include(dirname(__FILE__).'/setManageUserAccountsVariables.php');
 <!DOCTYPE html>
 <html>
 	<!-- head -->
-		<?php include(dirname(__FILE__).'/manageUserAccountsHead.php'); ?>
+		<?php include(dirname(__FILE__).'/deleteOneUserAccountsHead.php'); ?>
 	
 	<body>
 		<!-- header -->
-		<?php include(dirname(__FILE__,2).'/home/headerLoggedFrenchTemplate.php') ?>
+		<?php include(dirname(__FILE__,2).'/home/headerLoggedEnglishTemplate.php') ?>
 		<main>
-			<?php include(dirname(__FILE__,2).'/changeLang/changeLangFrenchTemplate.php') ?>
-			<h1>Gestion des informations personnelles</h1>
+			<?php include(dirname(__FILE__,2).'/changeLang/changeLangEnglishTemplate.php') ?>
+			<h1>Manage Personal Information</h1>
 			
 			<div class="main-container">
                 <div class="secondary-container-CUA">
                     <!-- form -->
-                    <?php include(dirname(__FILE__).'/manageUserAccountsFormFrench-Template.php') ?>
+                    <?php include(dirname(__FILE__).'/deleteOneUserAccountsFormEnglish-Template.php') ?>
 
-                    <p class="error"><?= $msg ?></p>
+                    <p id="confirmation" class="delete">Do you really want to delete this account?</p>
                 <div>
 			</div>
 		</main>

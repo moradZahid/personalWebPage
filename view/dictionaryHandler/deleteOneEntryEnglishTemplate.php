@@ -13,7 +13,7 @@ include(dirname(__FILE__).'/setModifyOneEntryVariables.php');
 		<?php include(dirname(__FILE__,2).'/home/headerLoggedEnglishTemplate.php') ?>
 		<main>
 			<?php include(dirname(__FILE__,2).'/changeLang/changeLangEnglishTemplate.php') ?>
-			<h1>Gestion des entrées du dictionnaire</h1>
+			<h1>Dictionary Entries Management</h1>
 			
 			<div class="main-container">
                 <div class="secondary-container-ME">

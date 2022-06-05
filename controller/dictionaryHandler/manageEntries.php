@@ -6,7 +6,7 @@ check_permission();
 global $ENTRIES_PER_PAGE;
 global $nbr_entries;
 
-$ENTRIES_PER_PAGE = 10;
+$ENTRIES_PER_PAGE = $_SESSION['nbr_entries_per_page'];
 $nbr_entries = get_number_entries();
 
 /************************************* Check for errors ***********************/

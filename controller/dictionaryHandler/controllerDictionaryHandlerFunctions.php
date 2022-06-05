@@ -80,20 +80,20 @@ function get_offset($page_nbr)
  *
  *							: param : $letter : string
  *
- *							: return: integer
+ *							: return: boolean
  */
  function check_validity_letter($letter)
  {
  	 if (strlen($letter) != 1)
  	 {
- 	 	 return 0;
+ 	 	 return false;
  	 }
  	 $ord = ord($letter);
  	 if ($ord < 97 || $ord > 122)
  	 {
- 	 	 return 0;
+ 	 	 return false;
  	 }
- 	 return 1;
+ 	 return true;
  }
 
 
@@ -103,7 +103,7 @@ function get_offset($page_nbr)
  *
  *						: param : $page		: integer
  *								: $letter	: string
- *						: return: integer
+ *						: return: boolean
  */
  function check_validity_page($page,$letter)
  {
@@ -113,7 +113,11 @@ function get_offset($page_nbr)
 
 	if ($page < 1)
 	{
-		return 0;
+		return false;
+	}
+	if($page == 1)
+	{
+		return true;
 	}
 
 	$index = ord($letter) - 97;
@@ -122,9 +126,9 @@ function get_offset($page_nbr)
 
 	if ($page > $last_page)
 	{
-		return 0;
+		return false;
 	}
-	return 1;
+	return true;
  }
 
 /**

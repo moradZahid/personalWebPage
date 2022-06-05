@@ -7,15 +7,15 @@ class UserAccountModification {
     private $password1;
     private $password2;
     private $email;
-    private $user_id;
-    private $pswd_modified;
+    private $userId;
+    private $pswdModified;
 
     public function __construct($login,$email,$pswd_modified,$user_id,$password=[])
     {
         $this->login = $login;
         $this->email = $email;
-        $this->pswd_modified = $pswd_modified;
-        $this->user_id = $user_id;
+        $this->pswdModified = $pswd_modified;
+        $this->userId = $user_id;
 
         if ($pswd_modified == 'modified')
         {
@@ -30,15 +30,15 @@ class UserAccountModification {
     public function execute() 
     {
         checkEmail($this->email);
-        if ($this->pswd_modified == 'modified') 
+        if ($this->pswdModified == 'modified') 
         {
             checkPassword($this->password1,$this->password2);
-            $userAccount = new UserAccount($this->login, $this->email,  $this->password1, $this->user_id);
+            $userAccount = new UserAccount($this->login, $this->email,  $this->password1, $this->userId);
             include(dirname(__FILE__,3).'/model/userAccountHandler/updateUserAccountAndPassword.php');
         }
         else
         {
-            $userAccount = new UserAccount($this->login, $this->email, NULL, $this->user_id);
+            $userAccount = new UserAccount($this->login, $this->email, NULL, $this->userId);
             include(dirname(__FILE__,3).'/model/userAccountHandler/updateUserAccount.php');
         }
         if ($_SESSION['login'] != 'admin')

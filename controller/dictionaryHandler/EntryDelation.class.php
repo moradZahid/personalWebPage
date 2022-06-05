@@ -32,6 +32,36 @@ class EntryDelation
 
 
 	/**
+     * checkPage : check if the page number is still valid
+     */
+    private function checkPage()
+    {
+		global $ENTRIES_PER_PAGE;
+		global $nbr_entries;
+
+		$ENTRIES_PER_PAGE = $_SESSION['nbr_entries_per_page'];
+		$nbr_entries = get_number_entries();
+
+		$letter = $_SESSION['letter'];
+		$page_nbr = $_SESSION['page_nbr'];
+		$index = ord($letter) - 97;
+	
+		if ($nbr_entries[$index] == "0")
+		{
+			$_SESSION['letter'] = NULL;
+			$_SESSION['page_nbr'] = NULL;
+		} 
+		else {
+			if (!check_validity_page($page_nbr,$letter))
+			{
+				$last_page = ceil($nbr_entries[$index] / $ENTRIES_PER_PAGE);
+				$_SESSION['page_nbr'] = $last_page;
+			}
+		}
+	}
+
+
+	/**
 	 * delete	: Delete the entry whose id is given in parameter
 	 *
 	 *			: param : $french_id : integer
@@ -41,6 +71,7 @@ class EntryDelation
 	 {
 		include(dirname(__FILE__,3).'/model/dictionaryHandler/deleteOneEntry.php');
 
+		$this->checkPage();
 		if ($_SESSION['lang'] == 'english')
 		{
 			$_SESSION['success']='Entry delated';
