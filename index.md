@@ -6,7 +6,7 @@ layout: default
 
 ## Description
 <figure>
-
+<img src="http://morad-zahid.lescigales.org/images/appExplanations/home.jpg">
 <figcaption>
 <p>
    Entrez un terme dans la zone 1.
