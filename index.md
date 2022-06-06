@@ -25,7 +25,7 @@ layout: default
 <img src="http://morad-zahid.lescigales.org/images/appExplanations/sign-up.jpg">                             
  <figcaption>
   <p>
- Pour s'inscrire remplisser le formulaire dans la zone 1.
+ Pour s'inscrire remplissez le formulaire dans la zone 1.
  </p>
  <p>
 Un code, entré dans la zone 2, permet de vérifier que le compte est bien crée par un humain.
