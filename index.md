@@ -20,7 +20,7 @@ layout: default
 </p>
 </figcaption>
 </figure>
-<br><br><br><br>
+<br><br><br>
 <figure>
 <img src="http://morad-zahid.lescigales.org/images/appExplanations/sign-up.jpg">                             
  <figcaption>
@@ -32,7 +32,7 @@ Un code, entré dans la zone 2, permet de vérifier que le compte est bien crée
 </p>
 </figcaption>
 </figure>
-<br><br><br><br>
+<br><br><br>
 <figure>
    <img src="http://morad-zahid.lescigales.org/images/appExplanations/sign-in.jpg">
 <figcaption>
@@ -41,7 +41,7 @@ Un code, entré dans la zone 2, permet de vérifier que le compte est bien crée
   </p>
 </figcaption>     
 </figure>
-<br><br><br><br>                   
+<br><br><br>                   
 <figure>
    <img src="http://morad-zahid.lescigales.org/images/appExplanations/logged.jpg">
  <figcaption>
@@ -50,14 +50,14 @@ Un code, entré dans la zone 2, permet de vérifier que le compte est bien crée
   </p>
   </figcaption>
 </figure>
-<br><br><br><br>
+<br><br><br>
 <figure>
 <img src="http://morad-zahid.lescigales.org/images/appExplanations/menu.jpg">                        
 <figcaption>
  En cliquant dessus vous accédez au menu offrant différentes fonctionnalités.
 </figcaption>
  </figure>
-<br><br><br><br>                    
+<br><br><br>                    
 <figure>
    <img src="http://morad-zahid.lescigales.org/images/appExplanations/entries-management.jpg">
 <figcaption>
@@ -72,7 +72,7 @@ Cependant vous ne pouvez pas avoir accés aux entrées que vous n'avez pas ajout
 </p>
 </figcaption>
 </figure>
-<br><br><br><br>
+<br><br><br>
 <figure>
    <img src="http://morad-zahid.lescigales.org/images/appExplanations/account-management.jpg">
 <figcaption>
