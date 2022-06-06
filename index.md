@@ -20,7 +20,7 @@ layout: default
 </p>
 </figcaption>
 </figure>
-<br><br><br>
+<br><br>
 <figure>
 <img src="http://morad-zahid.lescigales.org/images/appExplanations/sign-up.jpg">                             
  <figcaption>
