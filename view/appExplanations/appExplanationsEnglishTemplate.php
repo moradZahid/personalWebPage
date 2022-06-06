@@ -15,8 +15,8 @@ include(dirname(__FILE__).'/setAppExplanationsVariables.php');
 		<!-- header -->
 		<?php include(dirname(__FILE__,2).'/home'.choose_header()) ?>
 		<main>
-			<?php include(dirname(__FILE__,2).'/changeLang/changeLangFrenchTemplate.php') ?> 
-			<h1>Fonctionnement du site</h1>
+			<?php include(dirname(__FILE__,2).'/changeLang/changeLangEnglishTemplate.php') ?> 
+			<h1>Application Explanations</h1>
 			
 			<div class="main-container">
                 <div class="secondary-container">
@@ -24,14 +24,14 @@ include(dirname(__FILE__).'/setAppExplanationsVariables.php');
                         <img src="<?=$img.'/appExplanations/home.jpg'?>">
                         <figcaption>
                             <p>
-                                Entrez un terme dans la zone 1.
+                                Input a term in the area 1.
                             </p>
                             <p>
-                                Si une traduction est disponible, elle s'affichera dans la zone 2.
+                                If there is a translation, it will be displayed in the area 2.
                             </p>
                             <p>
-                                Pour s'inscrire et contribuer à l'enrichissement du dictionnaire, cliquez sur le 
-                                bouton de la zone 3
+                                To sign up and contributing to enhance the dictionary, please click on the button
+                                in the area 3.
                             </p>
                         </figcaption>
                     </figure>
@@ -40,10 +40,10 @@ include(dirname(__FILE__).'/setAppExplanationsVariables.php');
                         <img src="<?=$img.'/appExplanations/sign-up.jpg'?>">       
                         <figcaption>
                             <p>
-                                Pour s'inscrire remplisser le formulaire dans la zone 1.
+                                To sign up, fill the form in the area 1.
                             </p>
                             <p>
-                                Un code, entré dans la zone 2, permet de vérifier que le compte est bien crée par un humain.
+                                A code, in the area 2, prevent from nonhuman account creation.
                             </p>
                         </figcaption>
                     </figure>
@@ -51,7 +51,7 @@ include(dirname(__FILE__).'/setAppExplanationsVariables.php');
                         <img src="<?=$img.'/appExplanations/sign-in.jpg'?>">
                         <figcaption>
                             <p>
-                                Ensuite vous pouvez vous connecter.
+                                Then sign in.
                             </p>
                         </figcaption>
                     </figure>
@@ -59,27 +59,27 @@ include(dirname(__FILE__).'/setAppExplanationsVariables.php');
                         <img src="<?=$img.'/appExplanations/logged.jpg'?>">
                         <figcaption>
                             <p>
-                                Lorsque vous êtes connecté, votre login s'affiche dans le bouton de la zone 1.
+                                When you are logged, your login is printed inside the button in the area 1.
                             </p>
                         </figcaption>
                     </figure>
                     <figure>
                         <img src="<?=$img.'/appExplanations/menu.jpg'?>">
                         <figcaption>
-                            En cliquant dessus vous accédez au menu offrant différentes fonctionnalités.
+                            Click on it to access the menu and explore the different features.
                         </figcaption>
                     </figure>
                     <figure>
                         <img src="<?=$img.'/appExplanations/entries-management.jpg'?>">
                         <figcaption>
                             <p>
-                                Vous pouvez ajouter des entrées dans le dictionnaire.
+                                You can add entries in the dictionary.
                             </p>
                             <p>
-                                Vous pourrez alors les modifier ou les supprimer.
+                                Then you will be able to modify or delete them.
                             </p>
                             <p>
-                                Cependant vous ne pouvez pas avoir accés aux entrées que vous n'avez pas ajoutées.
+                                Be careful you cannot access the entries you do not own.
                             </p>
                         </figcaption>
                     </figure>
@@ -87,10 +87,10 @@ include(dirname(__FILE__).'/setAppExplanationsVariables.php');
                         <img src="<?=$img.'/appExplanations/account-management.jpg'?>">
                         <figcaption>
                             <p>
-                                Vous pouvez modifier vos informations personnelles ou supprimer votre compte.
+                                You can update your personal information or delete your account.
                             </p>   
                             <p>
-                                En cliquant sur le bouton 1, vous pourrez changer votre mot de passe.
+                                Please, click on the button in the area 1 to change your password.
                             </p>
                         </figcaption>
                     </figure>

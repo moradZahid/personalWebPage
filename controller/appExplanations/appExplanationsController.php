@@ -6,8 +6,7 @@ switch ($_SESSION['service'])
 case 'appExplanations':
     if ($_SESSION['lang'] == 'english')
     {
-        //include(dirname(__FILE__,3).'/view/appExplanations/appExplanationsEnglishTemplate.php');
-        include(dirname(__FILE__,3).'/view/appExplanations/appExplanationsFrenchTemplate.php');
+        include(dirname(__FILE__,3).'/view/appExplanations/appExplanationsEnglishTemplate.php');
     } 
     else 
     {

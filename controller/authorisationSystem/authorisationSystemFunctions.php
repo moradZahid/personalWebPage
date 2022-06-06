@@ -19,6 +19,8 @@ function check_service($strg)
 			return 1;
 		case 'manageEntries':
 			return 1;
+		case 'appExplanations':
+			return 1;
 		default:
 			return 0;
 	}
